@@ -257,7 +257,7 @@
         <!--Main Home View Controller-->
         <scene sceneID="MSf-o4-7WY">
             <objects>
-                <viewController id="5ub-ir-RKg" customClass="MainHomeViewController" customModule="PhotoStoreHouseV1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainHomeVC" id="5ub-ir-RKg" customClass="MainHomeViewController" customModule="PhotoStoreHouseV1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="quJ-Yb-Kht">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
