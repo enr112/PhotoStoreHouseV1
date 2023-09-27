@@ -101,7 +101,7 @@ class SignUpViewController: UIViewController {
                     // User was created successfully, store user data
                     let db = Firestore.firestore()
                     
-                    db.collection("/users/KV88cmPxE2f3iGI8HQHn").addDocument(data: ["firstName": firstName,
+                    db.collection("users").addDocument(data: ["firstName": firstName,
                                                                                     "lastName": lastName,
                                                                                     "jobtitle": jobTile,
                                                                                     "userID":authResult!.user.uid]){ (error) in
@@ -110,6 +110,7 @@ class SignUpViewController: UIViewController {
                         }
                     }
                     // Transition to main home screen
+                    self.transitionToHome()
                 }
             }
             
@@ -120,5 +121,10 @@ class SignUpViewController: UIViewController {
         errorLabel.text = message
         errorLabel.alpha = 1
     }
-    
+    func transitionToHome(){
+        let homeViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.mainHomeVC) as? MainHomeViewController
+        
+        view.window?.rootViewController = homeViewController
+        view.window?.makeKeyAndVisible()
+    }
 }
