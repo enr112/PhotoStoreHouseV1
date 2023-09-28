@@ -80,7 +80,7 @@ class LoginViewController: UIViewController {
         // check email is in the correct format
         let emailcheck = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        if Utilities.isValidEmail(emailcheck) == false {
+        if CorrectFormat.isValidEmail(emailcheck) == false {
             // email incorrect format
             return "Incorrect email format"
         }
