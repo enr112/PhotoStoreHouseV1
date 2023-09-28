@@ -287,7 +287,10 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z8b-L0-uBl">
                                                                 <rect key="frame" x="0.0" y="0.0" width="104" height="94"/>
                                                                 <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" image="80"/>
+                                                                <buttonConfiguration key="configuration" style="plain" image="80-create"/>
+                                                                <connections>
+                                                                    <segue destination="PJy-hE-Jq2" kind="show" id="PkG-cs-lT7"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Folder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaM-M0-LD2">
                                                                 <rect key="frame" x="0.0" y="95" width="104" height="20.5"/>
@@ -347,7 +350,7 @@
                                         <constraints>
                                             <constraint firstItem="hWN-13-gLy" firstAttribute="centerY" secondItem="6vX-sd-cpQ" secondAttribute="centerY" id="FOZ-WD-WcH"/>
                                             <constraint firstAttribute="height" constant="120" id="J6V-80-ToC"/>
-                                            <constraint firstItem="hWN-13-gLy" firstAttribute="centerX" secondItem="6vX-sd-cpQ" secondAttribute="centerX" id="yBx-XX-6lW"/>
+                                            <constraint firstItem="hWN-13-gLy" firstAttribute="centerX" secondItem="6vX-sd-cpQ" secondAttribute="centerX" id="t7H-1v-Iga"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qxd-2v-QDw" userLabel="bottomView">
@@ -392,11 +395,86 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0oH-om-5bB" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="130.43478260869566" y="843.08035714285711"/>
+            <point key="canvasLocation" x="130" y="1139"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="401-8V-nCR">
+            <objects>
+                <viewController id="PJy-hE-Jq2" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mVT-8C-QXz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PuO-tl-EDh">
+                                <rect key="frame" x="48" y="228" width="318" height="460"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter folder name" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dal-NE-4L6">
+                                        <rect key="frame" x="10" y="30" width="298" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bXq-qt-GZg">
+                                        <rect key="frame" x="10" y="94" width="298" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sX9-Mu-I5Z">
+                                        <rect key="frame" x="131" y="238" width="56" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                        <color key="textColor" systemColor="systemRedColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p29-a1-QO7">
+                                        <rect key="frame" x="10" y="158" width="82" height="37"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="cancel">
+                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="19"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8hn-m3-VJD">
+                                        <rect key="frame" x="237" y="158" width="71" height="37"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Done">
+                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="19"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.43921568630000002" green="0.99607843139999996" blue="0.72941176470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Dal-NE-4L6" firstAttribute="leading" secondItem="PuO-tl-EDh" secondAttribute="leading" constant="10" id="1cX-gl-2L6"/>
+                                    <constraint firstItem="bXq-qt-GZg" firstAttribute="top" secondItem="Dal-NE-4L6" secondAttribute="bottom" constant="30" id="7kj-Ad-5fO"/>
+                                    <constraint firstItem="Dal-NE-4L6" firstAttribute="centerX" secondItem="PuO-tl-EDh" secondAttribute="centerX" id="86d-tZ-K8D"/>
+                                    <constraint firstItem="p29-a1-QO7" firstAttribute="leading" secondItem="PuO-tl-EDh" secondAttribute="leading" constant="10" id="Gks-Yd-9CO"/>
+                                    <constraint firstItem="sX9-Mu-I5Z" firstAttribute="centerX" secondItem="PuO-tl-EDh" secondAttribute="centerX" id="LsZ-xW-c5Z"/>
+                                    <constraint firstItem="8hn-m3-VJD" firstAttribute="top" secondItem="bXq-qt-GZg" secondAttribute="bottom" constant="30" id="MFt-Wf-0ie"/>
+                                    <constraint firstAttribute="trailing" secondItem="8hn-m3-VJD" secondAttribute="trailing" constant="10" id="Mpv-85-OJE"/>
+                                    <constraint firstItem="p29-a1-QO7" firstAttribute="top" secondItem="bXq-qt-GZg" secondAttribute="bottom" constant="30" id="PmP-t4-Fo9"/>
+                                    <constraint firstItem="bXq-qt-GZg" firstAttribute="leading" secondItem="PuO-tl-EDh" secondAttribute="leading" constant="10" id="XIO-tO-OjH"/>
+                                    <constraint firstAttribute="height" constant="460" id="fKR-ac-9Bf"/>
+                                    <constraint firstItem="8hn-m3-VJD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="p29-a1-QO7" secondAttribute="trailing" constant="8" symbolic="YES" id="kDE-oY-fa4"/>
+                                    <constraint firstItem="Dal-NE-4L6" firstAttribute="top" secondItem="PuO-tl-EDh" secondAttribute="top" constant="30" id="kpd-n6-eyN"/>
+                                    <constraint firstItem="bXq-qt-GZg" firstAttribute="centerX" secondItem="PuO-tl-EDh" secondAttribute="centerX" id="tYX-No-rKx"/>
+                                    <constraint firstItem="sX9-Mu-I5Z" firstAttribute="top" secondItem="bXq-qt-GZg" secondAttribute="bottom" constant="110" id="uc0-J8-66u"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="sas-aR-Gty"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="sas-aR-Gty" firstAttribute="trailing" secondItem="PuO-tl-EDh" secondAttribute="trailing" constant="48" id="fpT-Ja-H8H"/>
+                            <constraint firstItem="PuO-tl-EDh" firstAttribute="top" secondItem="sas-aR-Gty" secondAttribute="top" constant="180" id="gL4-0R-BTF"/>
+                            <constraint firstItem="PuO-tl-EDh" firstAttribute="leading" secondItem="sas-aR-Gty" secondAttribute="leading" constant="48" id="lBY-bh-w1b"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="p2m-1V-whK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nPd-Sx-gu3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1150.7246376811595" y="660.9375"/>
         </scene>
     </scenes>
     <resources>
-        <image name="80" width="80" height="80"/>
+        <image name="80-create" width="80" height="80"/>
         <image name="80-upload" width="80" height="80"/>
         <image name="background_3" width="640" height="1136"/>
         <image name="camara76x76" width="76" height="76"/>
