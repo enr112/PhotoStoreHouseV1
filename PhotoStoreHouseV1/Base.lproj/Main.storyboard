@@ -69,7 +69,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1018" y="-27"/>
+            <point key="canvasLocation" x="504" y="-27"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gzu-ux-Da3">
@@ -87,7 +87,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnr-QY-fl0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="130.53435114503816" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="-523" y="-27"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="6qR-8M-Wxa">
@@ -180,7 +180,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="egW-cj-4wj" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1972" y="-235"/>
+            <point key="canvasLocation" x="1658" y="-558"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="46i-ak-XoR">
@@ -252,7 +252,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ai6-uV-Kxh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1972" y="422"/>
+            <point key="canvasLocation" x="1658" y="318"/>
         </scene>
         <!--Main Home View Controller-->
         <scene sceneID="MSf-o4-7WY">
@@ -310,6 +310,9 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPk-gm-opW">
                                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="90"/>
                                                                 <buttonConfiguration key="configuration" style="plain" image="camara76x76"/>
+                                                                <connections>
+                                                                    <segue destination="cRY-nl-y4C" kind="show" id="jCX-d6-pAb"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take Photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rQ-S4-7AA">
                                                                 <rect key="frame" x="0.0" y="91" width="100" height="20.5"/>
@@ -330,6 +333,9 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="104" height="94"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" image="80-upload"/>
+                                                                <connections>
+                                                                    <segue destination="Rc9-2o-5I7" kind="show" id="PgX-bi-4Fp"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload Photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kko-pZ-hsH">
                                                                 <rect key="frame" x="0.0" y="95" width="104" height="20.5"/>
@@ -395,7 +401,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0oH-om-5bB" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1039.1304347826087" y="1138.3928571428571"/>
+            <point key="canvasLocation" x="1188" y="1419"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="9wT-8J-XZg">
+            <objects>
+                <viewController id="cRY-nl-y4C" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mjK-Ek-Iqg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="GWf-Po-PxV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZWs-iB-Q9M"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B9j-Me-Ocp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2423" y="1443"/>
         </scene>
         <!--Create Folder View Controller-->
         <scene sceneID="401-8V-nCR">
@@ -487,7 +509,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nPd-Sx-gu3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2060.8695652173915" y="660.9375"/>
+            <point key="canvasLocation" x="2375" y="715"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KaN-E3-yzI">
@@ -505,7 +527,23 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eH5-s3-Mdk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="128.98550724637681" y="1138.3928571428571"/>
+            <point key="canvasLocation" x="314" y="1419"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="vhY-Fw-pEG">
+            <objects>
+                <viewController id="Rc9-2o-5I7" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Scq-9N-WTV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="92B-wn-MoT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="QwJ-cV-8Q6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Av-bN-JOj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2468" y="2182"/>
         </scene>
     </scenes>
     <resources>
