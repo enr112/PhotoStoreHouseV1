@@ -59,13 +59,30 @@ class LoginViewController: UIViewController {
                 self.errorLabel.alpha = 1
             }
             else {
-                let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.mainHomeVC) as? MainHomeViewController
-                
-                self.view.window?.rootViewController = homeViewController
-                self.view.window?.makeKeyAndVisible()
+//                let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.mainHomeVC) as? MainHomeViewController
+//
+//                self.view.window?.rootViewController = homeViewController
+//                self.view.window?.makeKeyAndVisible()
+                self.transitionToHome()
             }
             
         }
+        
+    }
+    
+    func transitionToHome(){
+//        let homeViewController = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.mainHomeVC) as! MainHomeViewController
+//
+//        view.window?.rootViewController = homeViewController
+//        view.window?.makeKeyAndVisible()
+        
+//        let rootVC:LoginViewController = self.storyboard?.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
+        let nvc:UINavigationController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.mainNavController) as! UINavigationController
+        
+        view.window?.rootViewController = nvc
+        view.window?.makeKeyAndVisible()
+        
+//        nvc.pushViewController(homeViewController, animated: true)
         
     }
     

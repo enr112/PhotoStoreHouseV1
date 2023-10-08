@@ -266,7 +266,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="f1U-UJ-bbR">
-                                <rect key="frame" x="0.0" y="48" width="414" height="814"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="770"/>
                                 <subviews>
                                     <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKg-OU-MMT" userLabel="topView">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
@@ -354,7 +354,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qxd-2v-QDw" userLabel="bottomView">
-                                        <rect key="frame" x="0.0" y="274" width="414" height="540"/>
+                                        <rect key="frame" x="0.0" y="274" width="414" height="496"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>
@@ -395,18 +395,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0oH-om-5bB" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="130" y="1139"/>
+            <point key="canvasLocation" x="1039.1304347826087" y="1138.3928571428571"/>
         </scene>
         <!--Create Folder View Controller-->
         <scene sceneID="401-8V-nCR">
             <objects>
                 <viewController id="PJy-hE-Jq2" customClass="CreateFolderViewController" customModule="PhotoStoreHouseV1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mVT-8C-QXz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PuO-tl-EDh">
-                                <rect key="frame" x="48" y="276" width="318" height="484"/>
+                                <rect key="frame" x="48" y="320" width="318" height="464"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vgW-Ot-fZf">
                                         <rect key="frame" x="0.0" y="0.0" width="318" height="330"/>
@@ -487,7 +487,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nPd-Sx-gu3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1150.7246376811595" y="660.9375"/>
+            <point key="canvasLocation" x="2060.8695652173915" y="660.9375"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="KaN-E3-yzI">
+            <objects>
+                <navigationController storyboardIdentifier="MainNavController" automaticallyAdjustsScrollViewInsets="NO" id="1rr-tk-3ir" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uhf-xe-eOx">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5ub-ir-RKg" kind="relationship" relationship="rootViewController" id="FFh-9Z-MWX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eH5-s3-Mdk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="128.98550724637681" y="1138.3928571428571"/>
         </scene>
     </scenes>
     <resources>
