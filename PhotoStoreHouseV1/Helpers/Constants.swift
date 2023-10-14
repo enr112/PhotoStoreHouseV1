@@ -10,6 +10,7 @@ struct Constants {
     struct Storyboard {
         static let mainHomeVC = "MainHomeVC"
         static let mainNavController = "MainNavController"
+        static let uploadCell = "uploadCell"
     }
 }
 // https://www.youtube.com/watch?v=ZmPJBiwgZoQ

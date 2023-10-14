@@ -17,6 +17,7 @@
 		2E66F55A2AB7EB8B00DDA178 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66F5592AB7EB8B00DDA178 /* LoginViewController.swift */; };
 		2E66F55C2AB7EBB200DDA178 /* MainHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66F55B2AB7EBB200DDA178 /* MainHomeViewController.swift */; };
 		2E808FB72ABF357700E9E258 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E808FB62ABF357700E9E258 /* Constants.swift */; };
+		2E8145FF2ADB2D0800E89A26 /* UploadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8145FE2ADB2D0800E89A26 /* UploadCell.swift */; };
 		2E8184972AC6320F005771C7 /* CorrectFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8184962AC6320F005771C7 /* CorrectFormat.swift */; };
 		2E8475402AC4FB1B008304DC /* CreateFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E84753F2AC4FB1B008304DC /* CreateFolderViewController.swift */; };
 		2EB62A5D2ABA50BF00944875 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB62A5C2ABA50BF00944875 /* Utilities.swift */; };
@@ -26,6 +27,8 @@
 		2ED6E5F92ABBC8DE00A538B1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2ED6E5F82ABBC8DE00A538B1 /* FirebaseFirestore */; };
 		2ED6E5FB2ABBC8DE00A538B1 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 2ED6E5FA2ABBC8DE00A538B1 /* FirebaseFunctions */; };
 		2ED6E5FD2ABBC8DE00A538B1 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2ED6E5FC2ABBC8DE00A538B1 /* FirebaseStorage */; };
+		2EE4EF8C2AD2358E0038BE67 /* UploadPhotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE4EF8B2AD2358E0038BE67 /* UploadPhotoVC.swift */; };
+		2EE4EF8E2AD235C20038BE67 /* TakePhotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE4EF8D2AD235C20038BE67 /* TakePhotoVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,10 +44,13 @@
 		2E66F5592AB7EB8B00DDA178 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2E66F55B2AB7EBB200DDA178 /* MainHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHomeViewController.swift; sourceTree = "<group>"; };
 		2E808FB62ABF357700E9E258 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2E8145FE2ADB2D0800E89A26 /* UploadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadCell.swift; sourceTree = "<group>"; };
 		2E8184962AC6320F005771C7 /* CorrectFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectFormat.swift; sourceTree = "<group>"; };
 		2E84753F2AC4FB1B008304DC /* CreateFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFolderViewController.swift; sourceTree = "<group>"; };
 		2EB62A5C2ABA50BF00944875 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		2ED6E5F12ABBC61000A538B1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2EE4EF8B2AD2358E0038BE67 /* UploadPhotoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPhotoVC.swift; sourceTree = "<group>"; };
+		2EE4EF8D2AD235C20038BE67 /* TakePhotoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakePhotoVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,7 @@
 			children = (
 				2E66F5402AB7EAC400DDA178 /* AppDelegate.swift */,
 				2E66F5422AB7EAC400DDA178 /* SceneDelegate.swift */,
+				2E8145FD2ADB2CC500E89A26 /* customCells */,
 				2EB62A5B2ABA503400944875 /* Helpers */,
 				2E66F5542AB7EAD200DDA178 /* ViewControllers */,
 				2E66F5462AB7EAC400DDA178 /* Main.storyboard */,
@@ -103,8 +110,18 @@
 				2E66F5592AB7EB8B00DDA178 /* LoginViewController.swift */,
 				2E66F55B2AB7EBB200DDA178 /* MainHomeViewController.swift */,
 				2E84753F2AC4FB1B008304DC /* CreateFolderViewController.swift */,
+				2EE4EF8B2AD2358E0038BE67 /* UploadPhotoVC.swift */,
+				2EE4EF8D2AD235C20038BE67 /* TakePhotoVC.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2E8145FD2ADB2CC500E89A26 /* customCells */ = {
+			isa = PBXGroup;
+			children = (
+				2E8145FE2ADB2D0800E89A26 /* UploadCell.swift */,
+			);
+			path = customCells;
 			sourceTree = "<group>";
 		};
 		2EB62A5B2ABA503400944875 /* Helpers */ = {
@@ -200,12 +217,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E66F5412AB7EAC400DDA178 /* AppDelegate.swift in Sources */,
+				2EE4EF8C2AD2358E0038BE67 /* UploadPhotoVC.swift in Sources */,
+				2E8145FF2ADB2D0800E89A26 /* UploadCell.swift in Sources */,
 				2E66F5562AB7EB1300DDA178 /* InitialHomeViewController.swift in Sources */,
 				2EB62A5D2ABA50BF00944875 /* Utilities.swift in Sources */,
 				2E66F5582AB7EB7300DDA178 /* SignUpViewController.swift in Sources */,
 				2E8475402AC4FB1B008304DC /* CreateFolderViewController.swift in Sources */,
 				2E8184972AC6320F005771C7 /* CorrectFormat.swift in Sources */,
 				2E66F55A2AB7EB8B00DDA178 /* LoginViewController.swift in Sources */,
+				2EE4EF8E2AD235C20038BE67 /* TakePhotoVC.swift in Sources */,
 				2E66F55C2AB7EBB200DDA178 /* MainHomeViewController.swift in Sources */,
 				2E66F5432AB7EAC400DDA178 /* SceneDelegate.swift in Sources */,
 				2E808FB72ABF357700E9E258 /* Constants.swift in Sources */,
