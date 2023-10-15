@@ -1,19 +1,25 @@
 //
-//  MainHomeViewController.swift
+//  PhotoDescriptionVC.swift
 //  PhotoStoreHouseV1
 //
-//  Created by Loaner on 9/17/23.
+//  Created by Loaner on 10/14/23.
 //
 
 import UIKit
 
-class MainHomeViewController: UIViewController {
+class PhotoDescriptionVC: UIViewController {
+    
+    @IBOutlet weak var imageDescription: UILabel!
+    var recievedData:UIImage?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.title = "Home"
+        imageDescription.text = "\(recievedData?.debugDescription ?? "Unknown") Details "
+        imageDescription.numberOfLines = 0
+        imageDescription.sizeToFit()
+        
     }
     
 
