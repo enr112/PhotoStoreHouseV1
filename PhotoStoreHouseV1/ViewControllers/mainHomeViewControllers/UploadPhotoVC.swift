@@ -7,6 +7,8 @@
 
 import UIKit
 import PhotosUI
+import FirebaseStorage
+import FirebaseFirestore
 
 class UploadPhotoVC: UIViewController {
 
@@ -84,8 +86,25 @@ class UploadPhotoVC: UIViewController {
             upLoadButton.isHidden = false
         }
     }
+    //---------------------------------------------------------------
     //MARK: -upload
     
+    @IBAction func uploadPhotoButton(_ sender: UIBarButtonItem) {
+        // create storage reference
+        let storageReference = Storage.storage().reference()
+        // save a reference of the image file into firestore database
+        let db = Firestore.firestore()
+        
+        var uploadPhotos = UploadPhotos(images: imageArray, storageRef: storageReference, storeDB: db)
+        
+        uploadPhotos.uploadPhotos()
+        
+    }
+    
+    func uploadPhotos(){
+        
+        
+    }
 }
 extension UploadPhotoVC: PHPickerViewControllerDelegate {
     

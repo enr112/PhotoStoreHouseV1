@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E5AFF6F2ADCA9F8002749AE /* uploadPhotoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5AFF6E2ADCA9F8002749AE /* uploadPhotoClass.swift */; };
 		2E66F5412AB7EAC400DDA178 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66F5402AB7EAC400DDA178 /* AppDelegate.swift */; };
 		2E66F5432AB7EAC400DDA178 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66F5422AB7EAC400DDA178 /* SceneDelegate.swift */; };
 		2E66F5482AB7EAC400DDA178 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E66F5462AB7EAC400DDA178 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E5AFF6E2ADCA9F8002749AE /* uploadPhotoClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uploadPhotoClass.swift; sourceTree = "<group>"; };
 		2E66F53D2AB7EAC400DDA178 /* PhotoStoreHouseV1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoStoreHouseV1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E66F5402AB7EAC400DDA178 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E66F5422AB7EAC400DDA178 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				2E83CF892ADB654B0016BB3E /* photoFile.swift */,
+				2E5AFF6E2ADCA9F8002749AE /* uploadPhotoClass.swift */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				2E66F5562AB7EB1300DDA178 /* InitialHomeViewController.swift in Sources */,
 				2EB62A5D2ABA50BF00944875 /* Utilities.swift in Sources */,
 				2E66F5582AB7EB7300DDA178 /* SignUpViewController.swift in Sources */,
+				2E5AFF6F2ADCA9F8002749AE /* uploadPhotoClass.swift in Sources */,
 				2E8475402AC4FB1B008304DC /* CreateFolderViewController.swift in Sources */,
 				2E8184972AC6320F005771C7 /* CorrectFormat.swift in Sources */,
 				2E83CF8E2ADB74E50016BB3E /* PhotoDescriptionVC.swift in Sources */,

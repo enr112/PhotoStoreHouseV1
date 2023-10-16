@@ -623,7 +623,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QwJ-cV-8Q6">
-                        <barButtonItem key="rightBarButtonItem" title="Upload" id="Eb6-Dx-6a6"/>
+                        <barButtonItem key="rightBarButtonItem" title="Upload" id="Eb6-Dx-6a6">
+                            <connections>
+                                <action selector="uploadPhotoButton:" destination="Rc9-2o-5I7" id="ihs-ez-sA4"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="choosePhotoButton" destination="oVd-Kg-vnL" id="caL-IB-g15"/>
