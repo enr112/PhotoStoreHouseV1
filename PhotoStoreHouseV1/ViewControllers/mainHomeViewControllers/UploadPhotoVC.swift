@@ -95,7 +95,7 @@ class UploadPhotoVC: UIViewController {
         // save a reference of the image file into firestore database
         let db = Firestore.firestore()
         
-        var uploadPhotos = UploadPhotos(images: imageArray, storageRef: storageReference, storeDB: db)
+        let uploadPhotos = UploadPhotos(images: imageArray, storageRef: storageReference, storeDB: db)
         
         uploadPhotos.uploadPhotos()
         
