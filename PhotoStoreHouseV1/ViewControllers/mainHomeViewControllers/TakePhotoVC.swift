@@ -6,9 +6,15 @@
 //
 
 import UIKit
+import AVFoundation
 
 class TakePhotoVC: UIViewController {
-
+    
+    // Capture Session
+    // Photo Output
+    // Video Preview
+    // Sutter Button
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,5 +31,6 @@ class TakePhotoVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    // https://www.youtube.com/watch?v=ZYPNXLABf3c
 
 }

@@ -9,6 +9,7 @@ import UIKit
 import PhotosUI
 import FirebaseStorage
 import FirebaseFirestore
+import ImageIO
 
 class UploadPhotoVC: UIViewController {
 
@@ -21,6 +22,9 @@ class UploadPhotoVC: UIViewController {
     @IBOutlet weak var upLoadButton: UIBarButtonItem!
     
     var imageArray = [UIImage]()
+    
+    // metadatArray
+    var metadatArray = [CFDictionary]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,25 +110,43 @@ class UploadPhotoVC: UIViewController {
         
     }
 }
-extension UploadPhotoVC: PHPickerViewControllerDelegate {
+extension UploadPhotoVC: PHPickerViewControllerDelegate, UIAdaptivePresentationControllerDelegate {
     
     public func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         dismiss(animated: true)
         
         for result in results {
             //updateUI()
-            result.itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
-                if let image = image as? UIImage {
-                    self.imageArray.append(image)
+            if result.itemProvider.canLoadObject(ofClass: UIImage.self) {
+                result.itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
+                    // cast image to UIImage and append the image to imageArray
+                    if let image = image as? UIImage {
+                        self.imageArray.append(image)
+                    }
+                    DispatchQueue.main.async {
+                        self.imageCollectionView.reloadData()
+                        self.updateUI()
+                    }
                 }
-                DispatchQueue.main.async {
-                    self.imageCollectionView.reloadData()
-                    self.updateUI()
+                // updateUI()
+            }
+            // retrieve image metadata
+            if (result.itemProvider.hasItemConformingToTypeIdentifier(UTType.image.identifier)){
+                result.itemProvider.loadFileRepresentation(forTypeIdentifier: UTType.image.identifier) { url, error in
+                    if let url = url {
+                        let options = [kCGImageSourceShouldCache as String: kCFBooleanFalse]
+                        let data = NSData(contentsOf: url)
+                        let imgSrc = CGImageSourceCreateWithData(data ?? NSData(), options as CFDictionary)
+                        let metadata = CGImageSourceCopyPropertiesAtIndex(imgSrc!, 0, options as CFDictionary)
+                        //var myKey = "DateTime"
+                        // CFDictionaryGetValue(metadata, &myKey)
+                        // print(CFDictionaryGetValue(metadata, &myKey) ?? "Unknown")
+                        self.metadatArray.append(metadata!)
+                    }
                 }
             }
-            // updateUI()
         }
-        //updateUI()
+        // end of loop
     }
 }
 
