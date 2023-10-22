@@ -9,8 +9,7 @@ import UIKit
 import AVFoundation
 
 class TakePhotoVC: UIViewController {
-    
-    @IBOutlet weak var imageView: UIImageView!
+    var imageArray = [UIImage]()
     // Capture Session
     var session:AVCaptureSession?
     // Photo Output
@@ -19,18 +18,34 @@ class TakePhotoVC: UIViewController {
     let previewLayer = AVCaptureVideoPreviewLayer()
     // Sutter Button
     private let shutterButton: UIButton = {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
         
         let boldConfig = UIImage.SymbolConfiguration(weight: .bold)
         let boldSearch = UIImage(systemName: "camera.fill", withConfiguration: boldConfig)
         button.setImage(boldSearch, for: .normal)
         
-        button.layer.cornerRadius = 50
-        button.layer.borderWidth = 10
+        button.layer.cornerRadius = 40
+        button.layer.borderWidth = 8
         button.layer.borderColor = UIColor.blue.cgColor
         
         return button
     }()
+    // exit button
+    private let exitButton: UIButton = {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
+        
+        // let boldConfig = UIImage.SymbolConfiguration(weight: .bold)
+        // let boldSearch = UIImage(systemName: "xmark", withConfiguration: boldConfig)
+        // button.setImage(boldSearch, for: .normal)
+        button.setTitle("Done", for: .normal)
+        
+        button.layer.cornerRadius = 40
+        button.layer.borderWidth = 8
+        button.layer.borderColor = UIColor.blue.cgColor
+        
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,16 +53,20 @@ class TakePhotoVC: UIViewController {
         view.backgroundColor = .black
         view.layer.addSublayer(previewLayer)
         view.addSubview(shutterButton)
+        view.addSubview(exitButton)
         
         checkCamaraPermissions()
         
         shutterButton.addTarget(self, action: #selector(didTapTakePhoto), for: .touchUpInside)
+        exitButton.addTarget(self, action: #selector(didTapExitButton), for: .touchUpInside)
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         previewLayer.frame = view.bounds
         
-        shutterButton.center = CGPointMake(view.frame.size.width/2, view.frame.size.height - 100)
+        shutterButton.center = CGPointMake(view.frame.size.width/2-50, view.frame.size.height - 100)
+        exitButton.center = CGPointMake(view.frame.size.width/2 + 50, view.frame.size.height - 100)
+        
     }
 
     private func checkCamaraPermissions(){
@@ -112,6 +131,29 @@ class TakePhotoVC: UIViewController {
     @objc private func didTapTakePhoto(){
         output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
     }
+    
+    @objc private func didTapExitButton(){
+        if ((session?.isRunning) != nil){
+            session?.stopRunning()
+        }
+        if imageArray.isEmpty {
+            popViewVC(animation: true)
+        }
+        else {
+            let toUploadPhotoVC = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.toUploadPhotoVC) as! UploadPhotoVC
+            toUploadPhotoVC.imageArray = imageArray
+            popViewVC(animation:true)
+            
+            navigationController?.pushViewController(toUploadPhotoVC, animated: true)
+        }
+        
+    }
+    private func popViewVC(animation:Bool){
+        if let navController = self.navigationController{
+            navController.popViewController(animated: animation)
+        }
+    }
+    
 }
 extension TakePhotoVC: AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
@@ -119,13 +161,20 @@ extension TakePhotoVC: AVCapturePhotoCaptureDelegate {
             return
         }
         
-        session?.stopRunning()
-
+        // session?.stopRunning()
+        
+        if let image = UIImage(data: data) {
+            imageArray.append(image)
+        }
+        
+        /*
         let image = UIImage(data: data)
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFill
         imageView.frame = view.bounds
         view.addSubview(imageView)
+         */
  
     }
+    
 }

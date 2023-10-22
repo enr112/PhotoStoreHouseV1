@@ -43,6 +43,7 @@ class UploadPhotoVC: UIViewController {
         let layout = imageCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
         
         layout.itemSize = CGSize(width: width, height: width)
+        updateUI()
     }
     func setUpElements(){
         Utilities.styleHollowButton(choosePhotoButton)

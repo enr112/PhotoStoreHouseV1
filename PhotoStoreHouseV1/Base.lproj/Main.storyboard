@@ -413,24 +413,10 @@
                     <view key="view" contentMode="scaleToFill" id="mjK-Ek-Iqg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LMU-31-5qE">
-                                <rect key="frame" x="0.0" y="92" width="414" height="804"/>
-                            </imageView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="GWf-Po-PxV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="LMU-31-5qE" firstAttribute="leading" secondItem="mjK-Ek-Iqg" secondAttribute="leading" id="5Uz-fA-NvE"/>
-                            <constraint firstAttribute="trailing" secondItem="LMU-31-5qE" secondAttribute="trailing" id="Ykn-0b-aCn"/>
-                            <constraint firstItem="LMU-31-5qE" firstAttribute="top" secondItem="GWf-Po-PxV" secondAttribute="top" id="eYG-lh-YAq"/>
-                            <constraint firstAttribute="bottom" secondItem="LMU-31-5qE" secondAttribute="bottom" id="iud-Lm-5co"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZWs-iB-Q9M"/>
-                    <connections>
-                        <outlet property="imageView" destination="LMU-31-5qE" id="KAX-JR-4e1"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B9j-Me-Ocp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -549,7 +535,7 @@
         <!--Upload PhotoVC-->
         <scene sceneID="vhY-Fw-pEG">
             <objects>
-                <viewController id="Rc9-2o-5I7" customClass="UploadPhotoVC" customModule="PhotoStoreHouseV1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="toUploadPhotoVC" id="Rc9-2o-5I7" customClass="UploadPhotoVC" customModule="PhotoStoreHouseV1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Scq-9N-WTV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

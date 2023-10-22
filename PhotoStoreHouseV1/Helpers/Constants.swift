@@ -12,6 +12,7 @@ struct Constants {
         static let mainNavController = "MainNavController"
         static let uploadCell = "uploadCell"
         static let photoDesptionVC = "toAddPhotoDescription"
+        static let toUploadPhotoVC = "toUploadPhotoVC"
     }
 }
 // https://www.youtube.com/watch?v=ZmPJBiwgZoQ
