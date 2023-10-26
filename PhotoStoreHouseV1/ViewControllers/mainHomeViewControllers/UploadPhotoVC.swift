@@ -38,7 +38,13 @@ class UploadPhotoVC: UIViewController {
         
         imageCollectionView.delegate = self
         imageCollectionView.dataSource = self
-        let numOfColumns = 3
+        // get device model
+        let device = UIDevice.current.model
+        
+        var numOfColumns = 3
+        if device == "iPad"{
+            numOfColumns = 4
+        }
         let width = (self.view.frame.size.width - CGFloat((numOfColumns-1) * 10)) / CGFloat(numOfColumns)
         let layout = imageCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
         
@@ -106,10 +112,17 @@ class UploadPhotoVC: UIViewController {
         
     }
     
-    func uploadPhotos(){
-        
-        
+    // *********************************************************
+    // detect device orientation
+    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
+        if fromInterfaceOrientation == .portrait || fromInterfaceOrientation == .portraitUpsideDown{
+            print("Only landscape")
+        }
+        else{
+            print("Only Portrate")
+        }
     }
+    
 }
 extension UploadPhotoVC: PHPickerViewControllerDelegate, UIAdaptivePresentationControllerDelegate {
     
