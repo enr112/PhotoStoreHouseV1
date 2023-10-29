@@ -59,6 +59,9 @@ class TakePhotoVC: UIViewController {
         
         shutterButton.addTarget(self, action: #selector(didTapTakePhoto), for: .touchUpInside)
         exitButton.addTarget(self, action: #selector(didTapExitButton), for: .touchUpInside)
+        
+        UIDevice.current.beginGeneratingDeviceOrientationNotifications()
+        NotificationCenter.default.addObserver(self, selector: #selector(deviceOrientationDidChange), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -111,7 +114,6 @@ class TakePhotoVC: UIViewController {
                     session.addOutput(output)
                 }
                 //********************************************
-                
                 previewLayer.videoGravity = .resizeAspectFill
                 previewLayer.session = session
                 
@@ -153,7 +155,61 @@ class TakePhotoVC: UIViewController {
             navController.popViewController(animated: animation)
         }
     }
-    
+    func videoOrientation(for deviceOrientation: UIDeviceOrientation) -> AVCaptureVideoOrientation {
+        switch deviceOrientation {
+        case UIDeviceOrientation.portrait:
+            return AVCaptureVideoOrientation.portrait
+        case UIDeviceOrientation.landscapeLeft:
+            return AVCaptureVideoOrientation.landscapeRight
+        case UIDeviceOrientation.landscapeRight:
+            return AVCaptureVideoOrientation.landscapeLeft
+        case UIDeviceOrientation.portraitUpsideDown:
+            return AVCaptureVideoOrientation.portraitUpsideDown
+        default:
+            return AVCaptureVideoOrientation.portrait
+        }
+    }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+
+        // Update the orientation of the preview layer when the device rotates
+        if let connection = previewLayer.connection {
+            let newOrientation: AVCaptureVideoOrientation
+            switch videoOrientation(for: deviceOrientation()){
+            //switch UIDevice.current.orientation {
+            case .portrait:
+                newOrientation = .portrait
+            case .portraitUpsideDown:
+                newOrientation = .portraitUpsideDown
+            case .landscapeLeft:
+                newOrientation = .landscapeLeft//.landscapeRight
+            case .landscapeRight:
+                newOrientation = .landscapeRight//.landscapeLeft
+            default:
+                newOrientation = .portrait
+            }
+
+            connection.videoOrientation = newOrientation
+
+            coordinator.animate(alongsideTransition: { _ in
+                // Apply a transformation to the preview layer to match the new orientation
+               // if let previewLayer = self.previewLayer {
+                self.previewLayer.connection?.videoOrientation = newOrientation
+                self.previewLayer.frame = CGRect(origin: CGPoint.zero, size: size)
+               // }
+            }, completion: nil)
+            super.viewWillTransition(to: size, with: coordinator)
+        }
+    }
+   //-------------------
+    @objc func deviceOrientationDidChange(notification:Notification){
+        guard let userInfo = notification.userInfo, let customVar = userInfo["customVariable"] as? String else {
+            debugPrint("failed to recieve notification as no userInfoExists")
+            return
+        }
+        debugPrint("Recieved update with custom notification variable: \(customVar)")
+    }
 }
 extension TakePhotoVC: AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {

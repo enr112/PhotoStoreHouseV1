@@ -13,7 +13,7 @@ class PhotoDescriptionVC: UIViewController {
     @IBOutlet weak var photoLocation: UITextView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
-    
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     var recievedData:UIImage?
     
@@ -21,13 +21,21 @@ class PhotoDescriptionVC: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        photoDescription.delegate = self
-        photoLocation.delegate = self
+        
+        setUp()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        self.view.addGestureRecognizer(tapGesture)
+        
+    }
+    private func setUp(){
         imageView.image = recievedData
-        photoDescription.layer.cornerRadius = 10
-        photoLocation.layer.cornerRadius = 10
+        photoDescription.layer.cornerRadius = 15
+        photoLocation.layer.cornerRadius = 15
         photoLocation.text = ""
         photoDescription.text = ""
+//        photoDescription.returnKeyType = .done
+//        photoLocation.returnKeyType = .done
         
         photoDescription.autocorrectionType = UITextAutocorrectionType.yes
         photoDescription.spellCheckingType = UITextSpellCheckingType.yes
@@ -35,18 +43,18 @@ class PhotoDescriptionVC: UIViewController {
         photoLocation.autocorrectionType = UITextAutocorrectionType.yes
         photoLocation.spellCheckingType = UITextSpellCheckingType.yes
         
-        setUp()
+        saveButton.isHidden = true
         
-    }
-    private func setUp(){
         setupKeyboardHidding()
+        self.photoDescription.delegate = self
+        self.photoLocation.delegate = self
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        self.view.endEditing(true)
-        //self.photoDescription.resignFirstResponder()
-    }
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        super.touchesBegan(touches, with: event)
+//        self.view.endEditing(true)
+//        //self.photoDescription.resignFirstResponder()
+//    }
     
     private func setupKeyboardHidding(){
         NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -57,7 +65,32 @@ class PhotoDescriptionVC: UIViewController {
 //        NotificationCenter.default.addObserver(self, selector: #selector(PhotoDescriptionVC.keyboardWillShow(sender:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
     }
-
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
+        if photoLocation.text != nil{
+            print(photoLocation.text!)
+            photoLocation.isEditable = false
+            photoLocation.backgroundColor = UIColor(red: 25/255, green: 105/255, blue: 105/255, alpha: 0.65)
+            saveButton.isHidden = true
+        }
+        else {
+            print("photo location is nil")
+            return
+        }
+        if photoDescription.text != nil{
+            print(photoDescription.text!)
+            photoDescription.isEditable = false
+            photoDescription.backgroundColor = UIColor(red: 25/255, green: 105/255, blue: 105/255, alpha: 0.65)
+            saveButton.isHidden = true
+        }
+        else {
+            print("photo description is nil")
+            return
+        }
+    }
     
 }
 extension PhotoDescriptionVC {
@@ -95,17 +128,26 @@ extension PhotoDescriptionVC {
 
 extension PhotoDescriptionVC: UITextViewDelegate{
     func textViewDidBeginEditing(_ textView: UITextView){
-        guard let currentTextView = UIResponder.currentFirst() as? UITextView else {
-        return
-        }
-        currentTextView.text = textView.text
+       // saveButton.isHidden = false
+        textView.backgroundColor = UIColor(red: 237/255, green: 228/255, blue: 255/255, alpha: 0.75)
+//        guard let currentTextView = UIResponder.currentFirst() as? UITextView else {
+//        return
+//        }
+//        currentTextView.text = textView.text
         
     }
     func textViewDidEndEditing(_ textView: UITextView) {
-        guard let currentTextView = UIResponder.currentFirst() as? UITextView else {
-        return
-        }
-        currentTextView.text = nil
+//        guard let currentTextView = UIResponder.currentFirst() as? UITextView else {
+//        return
+//        }
+//        currentTextView.text = nil
+        textView.backgroundColor = UIColor.systemBackground
+    }
+    func textViewDidChange(_ textView: UITextView)
+    {
+        saveButton.isHidden = false
+        textView.backgroundColor = UIColor(red: 255/255, green: 105/255, blue: 105/255, alpha: 0.65)
+     //   print(textView.text ?? "Empty text view")
     }
 }
 

@@ -23,6 +23,7 @@ class LoginViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setUpElements()
+        emailTextField.keyboardType = UIKeyboardType.emailAddress
     }
     func setUpElements(){
         errorLabel.alpha = 0
