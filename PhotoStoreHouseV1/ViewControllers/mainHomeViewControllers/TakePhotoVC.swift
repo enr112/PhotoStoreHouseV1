@@ -15,6 +15,7 @@ class TakePhotoVC: UIViewController {
     
     @IBOutlet weak var newPhotoButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var discardButton: UIButton!
     
     var imagePicker = UIImagePickerController()
 
@@ -24,11 +25,47 @@ class TakePhotoVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-
+        setupButtons()
+        imageView.frame = CGRectMake(0 , 0, self.view.frame.width, self.view.frame.height * 0.2)
 //        shutterButton.addTarget(self, action: #selector(didTapTakePhoto), for: .touchUpInside)
  //       exitButton.addTarget(self, action: #selector(didTapExitButton), for: .touchUpInside)
         
       }
+    private func setupButtons(){
+        let boldConfig = UIImage.SymbolConfiguration(weight: .bold)
+        var boldSearch = UIImage(systemName: "camera.fill", withConfiguration: boldConfig)
+        newPhotoButton.setImage(boldSearch, for: .normal)
+        newPhotoButton.layer.cornerRadius = 40
+        newPhotoButton.layer.borderWidth = 4
+        newPhotoButton.layer.borderColor = UIColor.blue.cgColor
+        //newPhotoButton.titleLabel?.isHidden = true
+        
+        //newPhotoButton.setImage(boldSearch, for: .normal)
+        doneButton.layer.cornerRadius = 40
+        doneButton.layer.borderWidth = 4
+        doneButton.layer.borderColor = UIColor.blue.cgColor
+        
+        boldSearch = UIImage(systemName: "trash.fill", withConfiguration: boldConfig)
+        discardButton.setImage(boldSearch, for: .normal)
+        discardButton.layer.cornerRadius = 40
+        discardButton.layer.borderWidth = 4
+        discardButton.layer.borderColor = UIColor.blue.cgColor
+    
+        
+//            let shutterButton: UIButton = {
+//            let button = UIButton(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
+//
+//            let boldConfig = UIImage.SymbolConfiguration(weight: .bold)
+//            let boldSearch = UIImage(systemName: "camera.fill", withConfiguration: boldConfig)
+//            button.setImage(boldSearch, for: .normal)
+//
+//            button.layer.cornerRadius = 40
+//            button.layer.borderWidth = 8
+//            button.layer.borderColor = UIColor.blue.cgColor
+//
+//            return button
+//        }()
+    }
     
     @IBAction func didTapNewPhoto(_ sender: UIButton) {
         presentImagePicker()
@@ -37,6 +74,26 @@ class TakePhotoVC: UIViewController {
     @IBAction func didTapDone(_ sender: UIButton) {
         userFinishedCapturingImages()
     }
+    @IBAction func didTapDiscard(_ sender: UIButton) {
+//        guard let currentImage = imageView.image else {
+//            return
+//        }
+//        let lastImage = capturedImages.last
+//        guard let removeLastElement = lastImage else {
+//            return
+//        }
+        if imageView.image != nil && capturedImages.last != nil{
+            capturedImages.removeLast()
+            if capturedImages.last != nil {
+                imageView.image = capturedImages.last
+            }
+            else {
+                imageView.image = UIImage()
+            }
+        }
+        return
+    }
+    
     /*
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -122,7 +179,11 @@ extension TakePhotoVC: UIImagePickerControllerDelegate, UINavigationControllerDe
         else {
             let toUploadPhotoVC = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.toUploadPhotoVC) as! UploadPhotoVC
             toUploadPhotoVC.imageArray = capturedImages
+            
+            capturedImages.removeAll()
+            imageView.image = UIImage()
             // popViewVC(animation:true)
+            
             
             navigationController?.pushViewController(toUploadPhotoVC, animated: true)
         }
