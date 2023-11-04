@@ -21,6 +21,10 @@ class UploadPhotoVC: UIViewController {
    // @IBOutlet weak var uploadButton: UIButton!
     @IBOutlet weak var upLoadButton: UIBarButtonItem!
     
+    var photoLocation: String?
+    var photoDetail: String?
+    
+    // retrieved images
     var imageArray = [UIImage]()
     
     // metadatArray
@@ -68,6 +72,13 @@ class UploadPhotoVC: UIViewController {
                 return
             }
             destinationVC.recievedData = selectedImage
+            destinationVC.descriptionHandler = { (text:String?) -> Void in
+                self.photoDetail = text
+                destinationVC.locationHandler = { text in
+                    self.photoLocation = text
+                    
+                }
+            }
         }
     }
 
@@ -101,6 +112,7 @@ class UploadPhotoVC: UIViewController {
     //MARK: -upload
     
     @IBAction func uploadPhotoButton(_ sender: UIBarButtonItem) {
+        printDescLoc()
         // create storage reference
         let storageReference = Storage.storage().reference()
         // save a reference of the image file into firestore database
@@ -183,5 +195,14 @@ extension UploadPhotoVC: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let seletedData = imageArray[indexPath.item]
         self.performSegue(withIdentifier: Constants.Storyboard.photoDesptionVC, sender: seletedData)
+    }
+    func printDescLoc(){
+        if let decription = photoDetail {
+            debugPrint(decription)
+        }
+        if let location = photoLocation{
+            debugPrint(location)
+        }
+        
     }
 }

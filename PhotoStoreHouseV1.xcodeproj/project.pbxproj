@@ -116,6 +116,7 @@
 		2E66F5542AB7EAD200DDA178 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2E84753F2AC4FB1B008304DC /* CreateFolderViewController.swift */,
 				2E66F5552AB7EB1300DDA178 /* InitialHomeViewController.swift */,
 				2E66F5572AB7EB7300DDA178 /* SignUpViewController.swift */,
 				2E66F5592AB7EB8B00DDA178 /* LoginViewController.swift */,
@@ -145,7 +146,6 @@
 		2E83CF8C2ADB72040016BB3E /* mainHomeViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				2E84753F2AC4FB1B008304DC /* CreateFolderViewController.swift */,
 				2EE4EF8B2AD2358E0038BE67 /* UploadPhotoVC.swift */,
 				2EE4EF8D2AD235C20038BE67 /* TakePhotoVC.swift */,
 				2E83CF8D2ADB74E50016BB3E /* PhotoDescriptionVC.swift */,

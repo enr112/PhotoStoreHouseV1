@@ -17,6 +17,11 @@ class PhotoDescriptionVC: UIViewController {
     
     var recievedData:UIImage?
     
+    // closure property that sets photo description in UploadPhotoVC
+    var descriptionHandler: ((String?) -> Void)?
+    // closure property that sets photo location in UploadPhotoVC
+    var locationHandler: ((String?) -> ())?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,8 +37,8 @@ class PhotoDescriptionVC: UIViewController {
         imageView.image = recievedData
         photoDescription.layer.cornerRadius = 15
         photoLocation.layer.cornerRadius = 15
-        photoLocation.text = ""
-        photoDescription.text = ""
+        photoLocation.text = nil
+        photoDescription.text = nil
 //        photoDescription.returnKeyType = .done
 //        photoLocation.returnKeyType = .done
         
@@ -70,26 +75,56 @@ class PhotoDescriptionVC: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
+        
+        if let desc = photoDescription {
+            print(desc)
+        }
+        else {
+            debugPrint("description is nil")
+        }
+        if let location = photoLocation {
+            debugPrint(location)
+        }
+        else {
+            debugPrint("location is nil")
+        }
+        
+        descriptionHandler?(photoDescription.text)
+        photoDescription.isEditable = false
+        photoDescription.backgroundColor = UIColor(red: 25/255, green: 105/255, blue: 105/255, alpha: 0.65)
+        
+        locationHandler?(photoLocation.text)
+        photoLocation.isEditable = false
+        photoLocation.backgroundColor = UIColor(red: 25/255, green: 105/255, blue: 105/255, alpha: 0.65)
+        
+        
+        saveButton.isHidden = true
+        
+      /*
         if photoLocation.text != nil{
             print(photoLocation.text!)
             photoLocation.isEditable = false
             photoLocation.backgroundColor = UIColor(red: 25/255, green: 105/255, blue: 105/255, alpha: 0.65)
             saveButton.isHidden = true
+            
         }
         else {
-            print("photo location is nil")
+            print("photo location is empty")
             return
         }
-        if photoDescription.text != nil{
+        if photoDescription != nil{
             print(photoDescription.text!)
             photoDescription.isEditable = false
             photoDescription.backgroundColor = UIColor(red: 25/255, green: 105/255, blue: 105/255, alpha: 0.65)
             saveButton.isHidden = true
+            //descriptionHandler?(photoDescription.text)
+            
         }
         else {
             print("photo description is nil")
             return
         }
+       */
     }
     
 }
@@ -130,10 +165,7 @@ extension PhotoDescriptionVC: UITextViewDelegate{
     func textViewDidBeginEditing(_ textView: UITextView){
        // saveButton.isHidden = false
         textView.backgroundColor = UIColor(red: 237/255, green: 228/255, blue: 255/255, alpha: 0.75)
-//        guard let currentTextView = UIResponder.currentFirst() as? UITextView else {
-//        return
-//        }
-//        currentTextView.text = textView.text
+
         
     }
     func textViewDidEndEditing(_ textView: UITextView) {
