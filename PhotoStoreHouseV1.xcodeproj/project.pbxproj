@@ -23,6 +23,7 @@
 		2E83CF8A2ADB654B0016BB3E /* photoFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E83CF892ADB654B0016BB3E /* photoFile.swift */; };
 		2E83CF8E2ADB74E50016BB3E /* PhotoDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E83CF8D2ADB74E50016BB3E /* PhotoDescriptionVC.swift */; };
 		2E8475402AC4FB1B008304DC /* CreateFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E84753F2AC4FB1B008304DC /* CreateFolderViewController.swift */; };
+		2E88CA9F2AF81AF70032416E /* FolderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E88CA9E2AF81AF70032416E /* FolderCell.swift */; };
 		2EB62A5D2ABA50BF00944875 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB62A5C2ABA50BF00944875 /* Utilities.swift */; };
 		2EC9DE112AEDEA54004D2CA4 /* ViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC9DE102AEDEA54004D2CA4 /* ViewController+Utils.swift */; };
 		2ED6E5F22ABBC61000A538B1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2ED6E5F12ABBC61000A538B1 /* GoogleService-Info.plist */; };
@@ -55,6 +56,7 @@
 		2E83CF892ADB654B0016BB3E /* photoFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photoFile.swift; sourceTree = "<group>"; };
 		2E83CF8D2ADB74E50016BB3E /* PhotoDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDescriptionVC.swift; sourceTree = "<group>"; };
 		2E84753F2AC4FB1B008304DC /* CreateFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFolderViewController.swift; sourceTree = "<group>"; };
+		2E88CA9E2AF81AF70032416E /* FolderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderCell.swift; sourceTree = "<group>"; };
 		2EB62A5C2ABA50BF00944875 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		2EC9DE102AEDEA54004D2CA4 /* ViewController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Utils.swift"; sourceTree = "<group>"; };
 		2ED6E5F12ABBC61000A538B1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				2E8145FE2ADB2D0800E89A26 /* UploadCell.swift */,
+				2E88CA9E2AF81AF70032416E /* FolderCell.swift */,
 			);
 			path = customCells;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				2EE4EF8E2AD235C20038BE67 /* TakePhotoVC.swift in Sources */,
 				2E66F55C2AB7EBB200DDA178 /* MainHomeViewController.swift in Sources */,
 				2E66F5432AB7EAC400DDA178 /* SceneDelegate.swift in Sources */,
+				2E88CA9F2AF81AF70032416E /* FolderCell.swift in Sources */,
 				2E808FB72ABF357700E9E258 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -364,7 +364,36 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qxd-2v-QDw" userLabel="bottomView">
                                         <rect key="frame" x="0.0" y="274" width="414" height="530"/>
+                                        <subviews>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="E0x-z7-9L1">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="530"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Nhc-6M-udg">
+                                                    <size key="itemSize" width="209" height="210"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="folderCell" id="fgH-yc-Hqg" customClass="FolderCell" customModule="PhotoStoreHouseV1" customModuleProvider="target">
+                                                        <rect key="frame" x="102.5" y="0.0" width="209" height="210"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="STl-Q1-ofw">
+                                                            <rect key="frame" x="0.0" y="0.0" width="209" height="210"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        </collectionViewCellContentView>
+                                                        <size key="customSize" width="209" height="210"/>
+                                                    </collectionViewCell>
+                                                </cells>
+                                            </collectionView>
+                                        </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="E0x-z7-9L1" secondAttribute="bottom" id="6tm-UN-dNK"/>
+                                            <constraint firstItem="E0x-z7-9L1" firstAttribute="top" secondItem="Qxd-2v-QDw" secondAttribute="top" id="hUi-QW-wR3"/>
+                                            <constraint firstAttribute="trailing" secondItem="E0x-z7-9L1" secondAttribute="trailing" id="mJm-8H-USR"/>
+                                            <constraint firstItem="E0x-z7-9L1" firstAttribute="leading" secondItem="Qxd-2v-QDw" secondAttribute="leading" id="t2a-Rx-5El"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -404,7 +433,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0oH-om-5bB" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1188" y="1419"/>
+            <point key="canvasLocation" x="1186.9565217391305" y="1418.9732142857142"/>
         </scene>
         <!--Take PhotoVC-->
         <scene sceneID="9wT-8J-XZg">
