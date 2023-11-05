@@ -26,6 +26,13 @@ class UploadPhotoVC: UIViewController {
     
     // retrieved images
     var imageArray = [UIImage]()
+    // array of descriptions
+    //var descriptions = [String?]()
+    var descriptions = [Int:String?]()
+    
+    // array of locations
+    //var locations = [String?]()
+    var locations = [Int:String?]()
     
     // metadatArray
     var metadatArray = [CFDictionary]()
@@ -73,9 +80,9 @@ class UploadPhotoVC: UIViewController {
             }
             destinationVC.recievedData = selectedImage
             destinationVC.descriptionHandler = { (text:String?) -> Void in
-                self.photoDetail = text
+                self.descriptions[index.item] = text
                 destinationVC.locationHandler = { text in
-                    self.photoLocation = text
+                    self.locations[index.item] = text
                     
                 }
             }
@@ -120,7 +127,7 @@ class UploadPhotoVC: UIViewController {
         
         let uploadPhotos = UploadPhotos(images: imageArray, storageRef: storageReference, storeDB: db)
         
-        uploadPhotos.uploadPhotos()
+        uploadPhotos.uploadPhotos(description: descriptions, location: locations, timeStamp: timeStamp())
         
     }
     
@@ -133,6 +140,15 @@ class UploadPhotoVC: UIViewController {
         else{
             print("Only Portrate")
         }
+    }
+    func timeStamp() -> String{
+        //--------------------------------------
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "mm-dd-yyyy hh:mm a"
+        let result = formatter.string(from: date)
+        //--------------------------------------------
+        return result
     }
     
 }
