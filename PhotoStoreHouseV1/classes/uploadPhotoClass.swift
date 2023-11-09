@@ -52,7 +52,7 @@ class UploadPhotos{
                     if error == nil && metadata != nil {
                         
                        // self.storeRef.collection("images").document().setData(["url":path])
-                        self.storeRef.collection("folders").document("boston01").collection("photos").document().setData(["name": name, "description":desc, "location":loc, "timeStamp":timeStamp, "associateUser": userID, "url":path]){
+                        self.storeRef.collection("folders").document("Peabody01").collection("photos").document().setData(["name": name, "description":desc, "location":loc, "timeStamp":timeStamp, "associateUser": userID, "url":path]){
                             error in
                             
                             //TODO: If there were no errors, do something

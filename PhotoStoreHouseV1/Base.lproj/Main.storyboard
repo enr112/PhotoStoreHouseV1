@@ -280,7 +280,7 @@
                                         <rect key="frame" x="0.0" y="152" width="414" height="120"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="hWN-13-gLy">
-                                                <rect key="frame" x="11" y="2.5" width="392" height="115.5"/>
+                                                <rect key="frame" x="9" y="2.5" width="396" height="115.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="rHi-N6-h3P">
                                                         <rect key="frame" x="0.0" y="0.0" width="104" height="115.5"/>
@@ -295,7 +295,7 @@
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Folder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaM-M0-LD2">
                                                                 <rect key="frame" x="0.0" y="95" width="104" height="20.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -317,7 +317,7 @@
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take Photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rQ-S4-7AA">
                                                                 <rect key="frame" x="0.0" y="91" width="100" height="20.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -328,10 +328,10 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Bla-Vx-eI2">
-                                                        <rect key="frame" x="288" y="0.0" width="104" height="115.5"/>
+                                                        <rect key="frame" x="288" y="0.0" width="108" height="115.5"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCI-P2-ati">
-                                                                <rect key="frame" x="0.0" y="0.0" width="104" height="94"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="108" height="94"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" image="80-upload"/>
                                                                 <connections>
@@ -339,8 +339,8 @@
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload Photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kko-pZ-hsH">
-                                                                <rect key="frame" x="0.0" y="95" width="104" height="20.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <rect key="frame" x="0.0" y="95" width="108" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -367,22 +367,59 @@
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="E0x-z7-9L1">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="530"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Nhc-6M-udg">
-                                                    <size key="itemSize" width="209" height="210"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Nhc-6M-udg">
+                                                    <size key="itemSize" width="179" height="153"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="folderCell" id="fgH-yc-Hqg" customClass="FolderCell" customModule="PhotoStoreHouseV1" customModuleProvider="target">
-                                                        <rect key="frame" x="102.5" y="0.0" width="209" height="210"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="179" height="153"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="STl-Q1-ofw">
-                                                            <rect key="frame" x="0.0" y="0.0" width="209" height="210"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="179" height="153"/>
                                                             <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="urj-7X-tcP">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="179" height="153"/>
+                                                                    <subviews>
+                                                                        <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KOP-QT-aZn">
+                                                                            <rect key="frame" x="0.0" y="0.5" width="179" height="89"/>
+                                                                            <color key="backgroundColor" red="0.62745098039215685" green="0.9137254901960784" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <color key="tintColor" red="0.0" green="0.66274509803921566" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="90" id="20O-6i-CNn"/>
+                                                                            </constraints>
+                                                                        </imageView>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Folder name a really long name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Gy-wx-JCU">
+                                                                            <rect key="frame" x="0.0" y="91" width="179" height="62"/>
+                                                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="trailing" secondItem="KOP-QT-aZn" secondAttribute="trailing" id="RPR-Pw-pOi"/>
+                                                                        <constraint firstItem="7Gy-wx-JCU" firstAttribute="centerX" secondItem="urj-7X-tcP" secondAttribute="centerX" id="jBe-0q-XhS"/>
+                                                                        <constraint firstItem="KOP-QT-aZn" firstAttribute="top" secondItem="urj-7X-tcP" secondAttribute="top" id="rfj-am-Y3P"/>
+                                                                        <constraint firstItem="KOP-QT-aZn" firstAttribute="leading" secondItem="urj-7X-tcP" secondAttribute="leading" id="zUl-U9-8G7"/>
+                                                                    </constraints>
+                                                                </stackView>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="urj-7X-tcP" firstAttribute="top" secondItem="STl-Q1-ofw" secondAttribute="top" id="9UF-No-395"/>
+                                                                <constraint firstItem="urj-7X-tcP" firstAttribute="leading" secondItem="STl-Q1-ofw" secondAttribute="leading" id="Ze3-Ue-hew"/>
+                                                                <constraint firstAttribute="bottom" secondItem="urj-7X-tcP" secondAttribute="bottom" id="hig-SI-nwu"/>
+                                                                <constraint firstAttribute="trailing" secondItem="urj-7X-tcP" secondAttribute="trailing" id="rCU-Xw-QZp"/>
+                                                            </constraints>
                                                         </collectionViewCellContentView>
-                                                        <size key="customSize" width="209" height="210"/>
+                                                        <size key="customSize" width="179" height="153"/>
+                                                        <connections>
+                                                            <outlet property="folderIconImageView" destination="KOP-QT-aZn" id="92J-me-eHH"/>
+                                                            <outlet property="folderNameLabel" destination="7Gy-wx-JCU" id="2qc-ak-auq"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
@@ -430,6 +467,9 @@
                     <navigationItem key="navigationItem" id="xmz-do-gEu">
                         <barButtonItem key="leftBarButtonItem" title="Sign Out" id="O64-bv-TEM"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="foldersCollectionView" destination="E0x-z7-9L1" id="hd7-rT-Nbz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0oH-om-5bB" sceneMemberID="firstResponder"/>
             </objects>
@@ -535,7 +575,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B9j-Me-Ocp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2421.739130434783" y="1442.4107142857142"/>
+            <point key="canvasLocation" x="2529" y="1318"/>
         </scene>
         <!--Create Folder View Controller-->
         <scene sceneID="401-8V-nCR">
@@ -627,7 +667,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nPd-Sx-gu3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2375" y="715"/>
+            <point key="canvasLocation" x="2446" y="657"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KaN-E3-yzI">
@@ -755,6 +795,32 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Av-bN-JOj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="393" y="2156"/>
+        </scene>
+        <!--Photos CollectionVC-->
+        <scene sceneID="nWq-9F-cwf">
+            <objects>
+                <viewController storyboardIdentifier="toPhotosColectionVC" id="xvI-lX-ByI" customClass="PhotosCollectionVC" customModule="PhotoStoreHouseV1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rEE-eh-IwV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_3" translatesAutoresizingMaskIntoConstraints="NO" id="1bG-WT-Jad">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qHG-j6-vk8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1bG-WT-Jad" firstAttribute="trailing" secondItem="qHG-j6-vk8" secondAttribute="trailing" id="1uQ-WO-k6x"/>
+                            <constraint firstItem="1bG-WT-Jad" firstAttribute="top" secondItem="rEE-eh-IwV" secondAttribute="top" id="Kqg-s3-VqK"/>
+                            <constraint firstAttribute="bottom" secondItem="1bG-WT-Jad" secondAttribute="bottom" id="ihC-3G-sdf"/>
+                            <constraint firstItem="1bG-WT-Jad" firstAttribute="leading" secondItem="qHG-j6-vk8" secondAttribute="leading" id="xmJ-9Q-zjc"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ur2-4Y-Uno" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="388.40579710144931" y="2814.5089285714284"/>
         </scene>
         <!--Photo DescriptionVC-->
         <scene sceneID="4j1-mJ-tcm">
@@ -905,6 +971,7 @@
         <image name="80-upload" width="80" height="80"/>
         <image name="background_3" width="640" height="1136"/>
         <image name="camara76x76" width="76" height="76"/>
+        <image name="folder.circle" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
