@@ -10,6 +10,7 @@ import PhotosUI
 import FirebaseStorage
 import FirebaseFirestore
 import ImageIO
+import DropDown
 
 class UploadPhotoVC: UIViewController {
 
@@ -28,6 +29,9 @@ class UploadPhotoVC: UIViewController {
     
     // array of locations
     var locations = [Int:String?]()
+    
+    // array of available folders
+    var foldersAvailable = [String]()
     
     // metadatArray
     var metadatArray = [CFDictionary]()
@@ -143,6 +147,11 @@ class UploadPhotoVC: UIViewController {
         let result = formatter.string(from: date)
         //--------------------------------------------
         return result
+    }
+    
+    // get the list of folders available
+    func getFolderNames(){
+        
     }
     
 }

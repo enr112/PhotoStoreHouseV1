@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E2DA98F2AFFC58D00720ABF /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 2E2DA98E2AFFC58D00720ABF /* DropDown */; };
+		2E2DA9DF2B00121D00720ABF /* RetrieveFolderNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2DA9DE2B00121D00720ABF /* RetrieveFolderNames.swift */; };
 		2E5AFF6F2ADCA9F8002749AE /* uploadPhotoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5AFF6E2ADCA9F8002749AE /* uploadPhotoClass.swift */; };
 		2E66F5412AB7EAC400DDA178 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66F5402AB7EAC400DDA178 /* AppDelegate.swift */; };
 		2E66F5432AB7EAC400DDA178 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66F5422AB7EAC400DDA178 /* SceneDelegate.swift */; };
@@ -40,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E2DA9DE2B00121D00720ABF /* RetrieveFolderNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrieveFolderNames.swift; sourceTree = "<group>"; };
 		2E5AFF6E2ADCA9F8002749AE /* uploadPhotoClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uploadPhotoClass.swift; sourceTree = "<group>"; };
 		2E66F53D2AB7EAC400DDA178 /* PhotoStoreHouseV1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoStoreHouseV1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E66F5402AB7EAC400DDA178 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +78,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2ED6E5F72ABBC8DE00A538B1 /* FirebaseDatabase in Frameworks */,
+				2E2DA98F2AFFC58D00720ABF /* DropDown in Frameworks */,
 				2ED6E5F52ABBC8DE00A538B1 /* FirebaseAuth in Frameworks */,
 				2ED6E5F92ABBC8DE00A538B1 /* FirebaseFirestore in Frameworks */,
 				2ED6E5FD2ABBC8DE00A538B1 /* FirebaseStorage in Frameworks */,
@@ -170,6 +174,7 @@
 				2E8184962AC6320F005771C7 /* CorrectFormat.swift */,
 				2EFCC5422AE890500059B14E /* UIResponder+Utils.swift */,
 				2EC9DE102AEDEA54004D2CA4 /* ViewController+Utils.swift */,
+				2E2DA9DE2B00121D00720ABF /* RetrieveFolderNames.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -196,6 +201,7 @@
 				2ED6E5F82ABBC8DE00A538B1 /* FirebaseFirestore */,
 				2ED6E5FA2ABBC8DE00A538B1 /* FirebaseFunctions */,
 				2ED6E5FC2ABBC8DE00A538B1 /* FirebaseStorage */,
+				2E2DA98E2AFFC58D00720ABF /* DropDown */,
 			);
 			productName = PhotoStoreHouseV1;
 			productReference = 2E66F53D2AB7EAC400DDA178 /* PhotoStoreHouseV1.app */;
@@ -227,6 +233,7 @@
 			mainGroup = 2E66F5342AB7EAC400DDA178;
 			packageReferences = (
 				2ED6E5F32ABBC8DE00A538B1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				2E2DA98D2AFFC58C00720ABF /* XCRemoteSwiftPackageReference "DropDown" */,
 			);
 			productRefGroup = 2E66F53E2AB7EAC400DDA178 /* Products */;
 			projectDirPath = "";
@@ -264,6 +271,7 @@
 				2EB62A5D2ABA50BF00944875 /* Utilities.swift in Sources */,
 				2E66F5582AB7EB7300DDA178 /* SignUpViewController.swift in Sources */,
 				2E829CAA2AFB25D300309F55 /* PhotoStruct.swift in Sources */,
+				2E2DA9DF2B00121D00720ABF /* RetrieveFolderNames.swift in Sources */,
 				2E5AFF6F2ADCA9F8002749AE /* uploadPhotoClass.swift in Sources */,
 				2E8475402AC4FB1B008304DC /* CreateFolderViewController.swift in Sources */,
 				2E8184972AC6320F005771C7 /* CorrectFormat.swift in Sources */,
@@ -500,6 +508,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2E2DA98D2AFFC58C00720ABF /* XCRemoteSwiftPackageReference "DropDown" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AssistoLab/DropDown.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		2ED6E5F32ABBC8DE00A538B1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -511,6 +527,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2E2DA98E2AFFC58D00720ABF /* DropDown */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2E2DA98D2AFFC58C00720ABF /* XCRemoteSwiftPackageReference "DropDown" */;
+			productName = DropDown;
+		};
 		2ED6E5F42ABBC8DE00A538B1 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2ED6E5F32ABBC8DE00A538B1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

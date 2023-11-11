@@ -9,8 +9,11 @@ import UIKit
 import FirebaseFirestore
 
 class MainHomeViewController: UIViewController {
+    @IBOutlet weak var availableFoldersLabel: UILabel!
     
     var folderNames = [String]()
+    
+    var folderNamesHandler: (([String]) -> Void)?
     
     @IBOutlet weak var foldersCollectionView: UICollectionView!
     
@@ -127,26 +130,19 @@ extension MainHomeViewController: UICollectionViewDelegate, UICollectionViewData
 extension MainHomeViewController {
     
     func retrieveFolderNames(){
-        // get reference to database
-        let db = Firestore.firestore()
-        
-        // Create a query to fetch document names without contents
-        let query = db.collection("folders")
-
-        query.getDocuments { (querySnapshot, error) in
-            if let error = error {
-                print("Error getting documents: \(error)")
-            } else {
-                for document in querySnapshot!.documents {
-                    // Access the document ID (name)
-                    let documentID = document.documentID
-                    self.folderNames.append(documentID)
-                    print("Document ID: \(documentID)")
-                }
+        FolderNames.retrieveFolderNames { folderNames in
+            if let folderNames = folderNames {
+                // Use the retrieved folder names here
+                self.folderNames = folderNames
+                print("Retrieved folder names: \(folderNames)")
                 // Reload the collection view data on the main thread
                 DispatchQueue.main.async {
                     self.foldersCollectionView.reloadData()
                 }
+                
+            } else {
+                // Handle the error
+                self.availableFoldersLabel.text = "Failed to retrieve folders"
             }
         }
         
