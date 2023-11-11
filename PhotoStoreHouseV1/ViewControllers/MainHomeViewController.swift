@@ -116,7 +116,7 @@ extension MainHomeViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // Handle item selection
             let toPhotosCollectionVc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.toPhotosCollectionVc) as! PhotosCollectionVC
-            
+        toPhotosCollectionVc.setFolderName = folderNames[indexPath.item]
             
             navigationController?.pushViewController(toPhotosCollectionVc, animated: true)
     }

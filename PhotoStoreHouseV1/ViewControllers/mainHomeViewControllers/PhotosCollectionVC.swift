@@ -8,13 +8,25 @@
 import UIKit
 
 class PhotosCollectionVC: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    @IBOutlet weak var folderNameLabel: UILabel!
+    var folderName:String?
+    
+    var setFolderName: String {
+        get {
+            folderName ?? "unknown"
+        }
+        set{
+            folderName = newValue
+        }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+        folderNameLabel.text = setFolderName
+    }
+
 
     /*
     // MARK: - Navigation
