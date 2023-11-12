@@ -31,11 +31,16 @@ class UploadPhotoVC: UIViewController {
     var locations = [Int:String?]()
     
     // array of available folders
+    // var foldersAvailable = [String]()
     var foldersAvailable = [String]()
     
     // metadatArray
     var metadatArray = [CFDictionary]()
     
+    // folder menu
+    var folderList = DropDown()
+    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -60,6 +65,7 @@ class UploadPhotoVC: UIViewController {
         
         layout.itemSize = CGSize(width: width, height: width)
         updateUI()
+        getFolderNames()
     }
     func setUpElements(){
         Utilities.styleHollowButton(choosePhotoButton)
@@ -118,6 +124,23 @@ class UploadPhotoVC: UIViewController {
     //MARK: -upload
     
     @IBAction func uploadPhotoButton(_ sender: UIBarButtonItem) {
+        createFolderList(sender) { selectedFolderName in
+            if let selectedFolderName = selectedFolderName {
+                // create storage reference
+                let storageReference = Storage.storage().reference()
+                // save a reference of the image file into firestore database
+                let db = Firestore.firestore()
+                
+                let uploadPhotos = UploadPhotos(images: self.imageArray, storageRef: storageReference, storeDB: db)
+                uploadPhotos.uploadPhotos(description: self.descriptions, location: self.locations, folderName: selectedFolderName, timeStamp: self.timeStamp())
+            }
+            else {
+                return
+            }
+        }
+
+        
+       /*
         // create storage reference
         let storageReference = Storage.storage().reference()
         // save a reference of the image file into firestore database
@@ -126,6 +149,7 @@ class UploadPhotoVC: UIViewController {
         let uploadPhotos = UploadPhotos(images: imageArray, storageRef: storageReference, storeDB: db)
         
         uploadPhotos.uploadPhotos(description: descriptions, location: locations, timeStamp: timeStamp())
+        */
         
     }
     
@@ -151,7 +175,62 @@ class UploadPhotoVC: UIViewController {
     
     // get the list of folders available
     func getFolderNames(){
+        FolderNames.retrieveFolderNames { folderNames in
+            if let folderNames = folderNames {
+                // Use the retrieved folder names here
+                self.foldersAvailable = folderNames
+                
+            } else {
+                // Handle the error
+                print("Failed to retrieve folders")
+                self.upLoadButton.title = "Cannot retrieve folders"
+            }
+        }
+    }
+    /*
+    func createFolderList(_ sender: UIBarButtonItem) -> String?{
         
+        var folderName:String?
+        // create a list of available folders
+        folderList.dataSource = foldersAvailable
+        folderList.anchorView = sender
+        //folderList.bottomOffset = CGPoint(x: 0, y: sender.size.height)
+            folderList.show()
+        
+        folderList.selectionAction = {index, title in
+            sender.title = "Uploaded to \(title)"
+            folderName = title
+            print("index \(index) and \(title)")
+            
+        }
+        return folderName
+    }
+     */
+    func createFolderList(_ sender: UIBarButtonItem, completion: @escaping (String?) -> Void) {
+        var folderName: String?
+        // create a list of available folders
+        folderList.dataSource = foldersAvailable
+        folderList.anchorView = sender
+        
+        folderList.cellNib = UINib(nibName: "DropDownCell", bundle: nil)
+        folderList.customCellConfiguration = { index, title, cell in
+            
+            guard let cell = cell as? FolderDropDownCell else {
+                return
+            }
+            cell.folderIcon.image = UIImage(systemName: "folder.fill")
+
+        }
+        
+        // folderList.bottomOffset = CGPoint(x: 0, y: sender.size.height)
+        folderList.show()
+        
+        folderList.selectionAction = { index, title in
+            sender.title = "Uploaded to \(title)"
+            folderName = title
+            print("index \(index) and \(title)")
+            completion(folderName) // Call the completion handler with the selected folderName
+        }
     }
     
 }

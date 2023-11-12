@@ -27,7 +27,7 @@ struct FolderNames{
                         // Access the document ID (name)
                         let documentID = document.documentID
                         folderNames.append(documentID)
-                        print("Document ID: \(documentID)")
+                       // print("Document ID: \(documentID)")
                     }
                     completion(folderNames) // Return the folder names when the query is complete
                 }

@@ -22,7 +22,7 @@ class UploadPhotos{
         self.storeRef = storeDB
     }
     
-    func uploadPhotos(description:[Int:String?], location:[Int:String?], timeStamp:String){
+    func uploadPhotos(description:[Int:String?], location:[Int:String?], folderName:String, timeStamp:String){
         if !imageArray.isEmpty{
             
             var index = 0
@@ -52,7 +52,7 @@ class UploadPhotos{
                     if error == nil && metadata != nil {
                         
                        // self.storeRef.collection("images").document().setData(["url":path])
-                        self.storeRef.collection("folders").document("Peabody01").collection("photos").document().setData(["name": name, "description":desc, "location":loc, "timeStamp":timeStamp, "associateUser": userID, "url":path]){
+                        self.storeRef.collection("folders").document(folderName).collection("photos").document().setData(["name": name, "description":desc, "location":loc, "timeStamp":timeStamp, "associatedUser": userID, "url":path, "belongsToFolder":folderName]){
                             error in
                             
                             //TODO: If there were no errors, do something

@@ -36,6 +36,8 @@
 		2ED6E5F92ABBC8DE00A538B1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2ED6E5F82ABBC8DE00A538B1 /* FirebaseFirestore */; };
 		2ED6E5FB2ABBC8DE00A538B1 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 2ED6E5FA2ABBC8DE00A538B1 /* FirebaseFunctions */; };
 		2ED6E5FD2ABBC8DE00A538B1 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2ED6E5FC2ABBC8DE00A538B1 /* FirebaseStorage */; };
+		2EE3945E2B0158EC00F9F4CB /* DropDownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE3945C2B0158EC00F9F4CB /* DropDownCell.swift */; };
+		2EE3945F2B0158EC00F9F4CB /* DropDownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE3945D2B0158EC00F9F4CB /* DropDownCell.xib */; };
 		2EE4EF8C2AD2358E0038BE67 /* UploadPhotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE4EF8B2AD2358E0038BE67 /* UploadPhotoVC.swift */; };
 		2EE4EF8E2AD235C20038BE67 /* TakePhotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE4EF8D2AD235C20038BE67 /* TakePhotoVC.swift */; };
 		2EFCC5432AE890500059B14E /* UIResponder+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFCC5422AE890500059B14E /* UIResponder+Utils.swift */; };
@@ -67,6 +69,8 @@
 		2EB62A5C2ABA50BF00944875 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		2EC9DE102AEDEA54004D2CA4 /* ViewController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Utils.swift"; sourceTree = "<group>"; };
 		2ED6E5F12ABBC61000A538B1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2EE3945C2B0158EC00F9F4CB /* DropDownCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownCell.swift; sourceTree = "<group>"; };
+		2EE3945D2B0158EC00F9F4CB /* DropDownCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropDownCell.xib; sourceTree = "<group>"; };
 		2EE4EF8B2AD2358E0038BE67 /* UploadPhotoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPhotoVC.swift; sourceTree = "<group>"; };
 		2EE4EF8D2AD235C20038BE67 /* TakePhotoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakePhotoVC.swift; sourceTree = "<group>"; };
 		2EFCC5422AE890500059B14E /* UIResponder+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+Utils.swift"; sourceTree = "<group>"; };
@@ -141,6 +145,8 @@
 			children = (
 				2E8145FE2ADB2D0800E89A26 /* UploadCell.swift */,
 				2E88CA9E2AF81AF70032416E /* FolderCell.swift */,
+				2EE3945C2B0158EC00F9F4CB /* DropDownCell.swift */,
+				2EE3945D2B0158EC00F9F4CB /* DropDownCell.xib */,
 			);
 			path = customCells;
 			sourceTree = "<group>";
@@ -253,6 +259,7 @@
 				2ED6E5F22ABBC61000A538B1 /* GoogleService-Info.plist in Resources */,
 				2E66F54A2AB7EAC500DDA178 /* Assets.xcassets in Resources */,
 				2E66F5482AB7EAC400DDA178 /* Main.storyboard in Resources */,
+				2EE3945F2B0158EC00F9F4CB /* DropDownCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +292,7 @@
 				2E66F5432AB7EAC400DDA178 /* SceneDelegate.swift in Sources */,
 				2E88CA9F2AF81AF70032416E /* FolderCell.swift in Sources */,
 				2E808FB72ABF357700E9E258 /* Constants.swift in Sources */,
+				2EE3945E2B0158EC00F9F4CB /* DropDownCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
