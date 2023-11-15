@@ -17,3 +17,4 @@ struct PhotoFile{
     //var photoID:String
     var url:String
 }
+// https://www.youtube.com/watch?v=xkxGoNfpLXs&t=751s

@@ -15,6 +15,7 @@ struct Constants {
         static let toUploadPhotoVC = "toUploadPhotoVC"
         static let folderCell = "folderCell"
         static let toPhotosCollectionVc = "toPhotosColectionVC"
+        static let photoCell = "photoCell"
     }
 }
 // https://www.youtube.com/watch?v=ZmPJBiwgZoQ

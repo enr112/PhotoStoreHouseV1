@@ -27,6 +27,7 @@
 		2E83CF8A2ADB654B0016BB3E /* photoFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E83CF892ADB654B0016BB3E /* photoFile.swift */; };
 		2E83CF8E2ADB74E50016BB3E /* PhotoDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E83CF8D2ADB74E50016BB3E /* PhotoDescriptionVC.swift */; };
 		2E8475402AC4FB1B008304DC /* CreateFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E84753F2AC4FB1B008304DC /* CreateFolderViewController.swift */; };
+		2E875CAB2B02E25A00913F97 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E875CAA2B02E25A00913F97 /* PhotoCell.swift */; };
 		2E88CA9F2AF81AF70032416E /* FolderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E88CA9E2AF81AF70032416E /* FolderCell.swift */; };
 		2EB62A5D2ABA50BF00944875 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB62A5C2ABA50BF00944875 /* Utilities.swift */; };
 		2EC9DE112AEDEA54004D2CA4 /* ViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC9DE102AEDEA54004D2CA4 /* ViewController+Utils.swift */; };
@@ -65,6 +66,7 @@
 		2E83CF892ADB654B0016BB3E /* photoFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photoFile.swift; sourceTree = "<group>"; };
 		2E83CF8D2ADB74E50016BB3E /* PhotoDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDescriptionVC.swift; sourceTree = "<group>"; };
 		2E84753F2AC4FB1B008304DC /* CreateFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFolderViewController.swift; sourceTree = "<group>"; };
+		2E875CAA2B02E25A00913F97 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		2E88CA9E2AF81AF70032416E /* FolderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderCell.swift; sourceTree = "<group>"; };
 		2EB62A5C2ABA50BF00944875 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		2EC9DE102AEDEA54004D2CA4 /* ViewController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Utils.swift"; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				2E88CA9E2AF81AF70032416E /* FolderCell.swift */,
 				2EE3945C2B0158EC00F9F4CB /* DropDownCell.swift */,
 				2EE3945D2B0158EC00F9F4CB /* DropDownCell.xib */,
+				2E875CAA2B02E25A00913F97 /* PhotoCell.swift */,
 			);
 			path = customCells;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				2E66F5412AB7EAC400DDA178 /* AppDelegate.swift in Sources */,
 				2EE4EF8C2AD2358E0038BE67 /* UploadPhotoVC.swift in Sources */,
 				2E8145FF2ADB2D0800E89A26 /* UploadCell.swift in Sources */,
+				2E875CAB2B02E25A00913F97 /* PhotoCell.swift in Sources */,
 				2E66F5562AB7EB1300DDA178 /* InitialHomeViewController.swift in Sources */,
 				2EB62A5D2ABA50BF00944875 /* Utilities.swift in Sources */,
 				2E66F5582AB7EB7300DDA178 /* SignUpViewController.swift in Sources */,

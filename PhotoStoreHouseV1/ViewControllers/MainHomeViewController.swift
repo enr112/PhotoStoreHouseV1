@@ -83,12 +83,16 @@ class MainHomeViewController: UIViewController {
         switch currentOrientation {
         case .portrait:
             orientaion = "portrait"
+            debugPrint("Portrait")
         case .landscapeLeft, .landscapeRight:
             orientaion = "landscape"
+            debugPrint("landscapeLeft or landScapeRight")
         case .portraitUpsideDown:
             orientaion = "portraitUpSideDown"
+            debugPrint("PortraitUpSideDown")
         case .unknown, .faceUp, .faceDown:
             orientaion = "unknown"
+            debugPrint("faceUp or faceDown")
         @unknown default:
             fatalError("Unable to detect device orientation")
         }
