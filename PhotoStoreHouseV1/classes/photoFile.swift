@@ -18,7 +18,7 @@ struct Photo{
     var photoID:String
 }
  */
-class Photo {
+class PhotoDocument {
     var name:String
     //var belongsToFolder:String
     var description:String

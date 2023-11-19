@@ -11,7 +11,9 @@ class DetailsVC: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     
-//    var image: UIImage{
+    @IBOutlet weak var descriptionTextView: UITextView!
+    
+    //    var image: UIImage{
 //        get {
 //            return imageView.image ?? UIImage()
 //        }
@@ -31,6 +33,8 @@ class DetailsVC: UIViewController {
         super.viewDidLoad()
 
         imageView.image = image
+        self.title = "Photo Details"
+        descriptionTextView.isEditable = false
     }
     
 

@@ -35,7 +35,7 @@ struct FolderNames{
                 }
             }
         }
-    static func retrieveFolderDocument(folderName: String, completion: @escaping ([Photo]?) -> Void){
+    static func retrieveFolderDocument(folderName: String, completion: @escaping ([PhotoDocument]?) -> Void){
        let db = Firestore.firestore()
        
         let folderRef = db.collection("folders").document(folderName).collection("photos")
@@ -46,7 +46,7 @@ struct FolderNames{
                 completion(nil) // Return nil to indicate an error
             }
             else {
-                var photoDocs = [Photo]()
+                var photoDocs = [PhotoDocument]()
                 //*******************************************
                 if querySnapshot != nil {
                     
@@ -62,7 +62,7 @@ struct FolderNames{
                                let url = data["url"] as? String,
                                let belongsToFolder = data["belongsToFolder"] as? String {
                                 
-                                let photoDocument = Photo(name: name, description: description, location: location, timeStamp: timeStamp, associatedUser: associatedUser, belongsToFolder: belongsToFolder, url: url)
+                                let photoDocument = PhotoDocument(name: name, description: description, location: location, timeStamp: timeStamp, associatedUser: associatedUser, belongsToFolder: belongsToFolder, url: url)
                                 photoDocs.append(photoDocument)
                             }
                             else {

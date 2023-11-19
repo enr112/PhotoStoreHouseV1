@@ -15,7 +15,7 @@ class PhotosCollectionVC: UIViewController {
     
     @IBOutlet weak var availablePhotosLabel: UILabel!
     // retrieved photo files from firestore
-    var photoFiles = [Photo]()
+    var photoFiles = [PhotoDocument]()
     var retrievedImages = [UIImage]()
     
     var folderName:String?

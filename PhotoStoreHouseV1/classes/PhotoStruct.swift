@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct PhotoFile{
+struct PhotoAndFile{
     var name:String
     //var belongsToFolder:String
     var description:String
