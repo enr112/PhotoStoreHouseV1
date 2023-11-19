@@ -26,16 +26,16 @@ class Photo {
     var timeStamp:String
     var associatedUser:String
     //var photoID:String
-    var belonsToFolder:String
+    var belongsToFolder:String
     var url:String
     
-    init(name:String, description:String, location:String, timeStamp:String, associatedUser:String, belonsToFolder:String, url:String){
+    init(name:String, description:String, location:String, timeStamp:String, associatedUser:String, belongsToFolder:String, url:String){
         self.name = name
         self.description = description
         self.location = location
         self.timeStamp = timeStamp
         self.associatedUser = associatedUser
-        self.belonsToFolder = belonsToFolder
+        self.belongsToFolder = belongsToFolder
         self.url = url
     }
 }

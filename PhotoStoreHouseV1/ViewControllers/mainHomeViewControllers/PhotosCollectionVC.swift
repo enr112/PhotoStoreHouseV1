@@ -13,6 +13,7 @@ class PhotosCollectionVC: UIViewController {
     
     @IBOutlet weak var imageCollectionView: UICollectionView!
     
+    @IBOutlet weak var availablePhotosLabel: UILabel!
     // retrieved photo files from firestore
     var photoFiles = [Photo]()
     var retrievedImages = [UIImage]()
@@ -34,7 +35,7 @@ class PhotosCollectionVC: UIViewController {
         // Do any additional setup after loading the view.
         //folderNameLabel.text = setFolderName
         if let folderName = folderName{
-            retrieveFolderDocumenst(folderName: folderName)
+            retrieveFolderDocument(folderName: folderName)
         }
         else {
             folderNameLabel.text = "unknown folder"
@@ -56,21 +57,36 @@ class PhotosCollectionVC: UIViewController {
         layout.itemSize = CGSize(width: width, height: width)
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        guard let index = imageCollectionView.indexPathsForSelectedItems?.first else {
+            return
+        }
+        
+        let selectedImage = retrievedImages[index.item]
+        
+        if segue.identifier == Constants.Storyboard.photoDetailsVC {
+            guard let destinationVC = segue.destination as? DetailsVC else {
+                return
+            }
+            destinationVC.image = selectedImage
+//            destinationVC.descriptionHandler = { (text:String?) -> Void in
+//                self.descriptions[index.item] = text
+//                destinationVC.locationHandler = { text in
+//                    self.locations[index.item] = text
+//
+//                }
+//            }
+        }
     }
-    */
 
 }
 
 extension PhotosCollectionVC: UICollectionViewDelegate{
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedData = retrievedImages[indexPath.item]
+        self.performSegue(withIdentifier: Constants.Storyboard.photoDetailsVC, sender: selectedData)
+    }
 }
 extension PhotosCollectionVC:UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -94,12 +110,18 @@ extension PhotosCollectionVC:UICollectionViewDataSource {
 }
 
 extension PhotosCollectionVC {
-    func retrieveFolderDocumenst(folderName:String){
+    func retrieveFolderDocument(folderName:String){
         FolderNames.retrieveFolderDocument(folderName: folderName) { folderDocuments in
             if let folderDocuments = folderDocuments {
-                // use retrieved folder douments
-                self.photoFiles = folderDocuments
-                self.retrievePhotos()
+                if folderDocuments.isEmpty{
+                    self.availablePhotosLabel.text = "This folder is empty"
+                }
+                else{
+                    // use retrieved folder douments
+                    self.photoFiles = folderDocuments
+                    self.retrievePhotos()
+                }
+
             }
             else {
                 print("Could not get photo files or an error occured")
@@ -151,7 +173,7 @@ extension PhotosCollectionVC {
         }
         
 /*
-        // loop thought each photo file to get the url and retrieve the actual image
+        // loop throught each photo file to get the url and retrieve the actual image
         for index in 0..<photoFiles.count{
             
             let path = photoFiles[index].url

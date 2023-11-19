@@ -29,7 +29,9 @@ struct FolderNames{
                         folderNames.append(documentID)
                        // print("Document ID: \(documentID)")
                     }
-                    completion(folderNames) // Return the folder names when the query is complete
+                    DispatchQueue.main.async {
+                        completion(folderNames) // Return the folder names when the query is complete
+                    }
                 }
             }
         }
@@ -60,7 +62,7 @@ struct FolderNames{
                                let url = data["url"] as? String,
                                let belongsToFolder = data["belongsToFolder"] as? String {
                                 
-                                let photoDocument = Photo(name: name, description: description, location: location, timeStamp: timeStamp, associatedUser: associatedUser, belonsToFolder: belongsToFolder, url: url)
+                                let photoDocument = Photo(name: name, description: description, location: location, timeStamp: timeStamp, associatedUser: associatedUser, belongsToFolder: belongsToFolder, url: url)
                                 photoDocs.append(photoDocument)
                             }
                             else {
@@ -77,7 +79,7 @@ struct FolderNames{
                 } // end inner if
                 else {
                     completion(nil)
-                    print("Error getting photo documents")
+                    print("Error getting photo documents. querySnapshot is nil")
                 }
                 //**********************************************
             } // end of else

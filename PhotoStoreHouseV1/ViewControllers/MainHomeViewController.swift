@@ -17,6 +17,9 @@ class MainHomeViewController: UIViewController {
     
     @IBOutlet weak var foldersCollectionView: UICollectionView!
     
+    // refresh to update new folders created
+    let refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,6 +30,9 @@ class MainHomeViewController: UIViewController {
         
         foldersCollectionView.delegate = self
         foldersCollectionView.dataSource = self
+        
+        refreshControl.addTarget(self, action: #selector(refreshFolderNames), for: UIControl.Event.valueChanged)
+        foldersCollectionView.refreshControl = refreshControl
         
     }
     func setLayout(){
@@ -150,5 +156,10 @@ extension MainHomeViewController {
             }
         }
         
+    }
+    // retrieve new folder names when new is created
+    @objc func refreshFolderNames(){
+        retrieveFolderNames()
+        self.foldersCollectionView.refreshControl?.endRefreshing()
     }
 }
