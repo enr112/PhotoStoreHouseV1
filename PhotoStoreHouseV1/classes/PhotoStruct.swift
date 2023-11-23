@@ -8,13 +8,7 @@
 import UIKit
 
 struct PhotoAndFile{
-    var name:String
-    //var belongsToFolder:String
-    var description:String
-    var location:String
-    var timeStamp:String
-    var associatedUser:String
-    //var photoID:String
-    var url:String
+    var photoDocument:PhotoDocument
+    var image:UIImage
 }
 // https://www.youtube.com/watch?v=xkxGoNfpLXs&t=751s

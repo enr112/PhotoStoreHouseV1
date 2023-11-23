@@ -13,18 +13,21 @@ class DetailsVC: UIViewController {
     
     @IBOutlet weak var descriptionTextView: UITextView!
     
-    //    var image: UIImage{
-//        get {
-//            return imageView.image ?? UIImage()
-//        }
-//        set{
-//            imageView.image = newValue
-//        }
-//    }
-    var image: UIImage? {
+    @IBOutlet weak var locationTextView: UITextView!
+    
+    @IBOutlet weak var dateLabel: UILabel!
+    
+    var imagedoc:PhotoDocument?
+    
+    let photoDocument = { (document:PhotoAndFile) -> Void in
+        //TODO -write coded here
+    }
+    var imageDocument: PhotoAndFile? {
         didSet {
             if isViewLoaded {
-                imageView.image = image
+                imageView.image = imageDocument?.image
+                imagedoc = imageDocument?.photoDocument
+                
             }
         }
     }
@@ -32,10 +35,19 @@ class DetailsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        imageView.image = image
+        imageView.image = imageDocument?.image
+        imagedoc = imageDocument?.photoDocument
+        descriptionTextView.text = imagedoc?.description
+        locationTextView.text = imagedoc?.location
+        dateLabel.text = imagedoc?.timeStamp
         self.title = "Photo Details"
         descriptionTextView.isEditable = false
+        locationTextView.isEditable = false
     }
     
+    func testing(){
+        print(imagedoc?.description ?? "imagedoc is nil --> description")
+        print(imagedoc?.location ?? "imagedoc is nil --> location ")
+    }
 
 }

@@ -46,8 +46,11 @@ class UploadPhotos{
                 let desc = self.descriptionArray(desc: description, indexKey: index)
                 let loc = self.locationArray(desc: location, indexKey: index)
                 
+                let dataType = StorageMetadata.init()
+                dataType.contentType = "image/jpeg"
+                
                 // upload data to firestorage
-                let uploadTask = fileRef.putData(imageData!, metadata: nil) { metadata, error in
+                let uploadTask = fileRef.putData(imageData!, metadata: dataType) { metadata, error in
                     
                     if error == nil && metadata != nil {
                         
@@ -58,6 +61,7 @@ class UploadPhotos{
                             //TODO: If there were no errors, do something
                             if error == nil{
                                 print("Saved reference to firestore db successfully")
+                                print("Put is complete --> \(String(describing: metadata))")
                             }
                         }
                     }

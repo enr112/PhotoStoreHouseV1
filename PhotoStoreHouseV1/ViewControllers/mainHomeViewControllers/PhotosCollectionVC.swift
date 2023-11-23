@@ -17,6 +17,7 @@ class PhotosCollectionVC: UIViewController {
     // retrieved photo files from firestore
     var photoFiles = [PhotoDocument]()
     var retrievedImages = [UIImage]()
+    var photos = [PhotoAndFile]()
     
     var folderName:String?
     
@@ -63,13 +64,13 @@ class PhotosCollectionVC: UIViewController {
             return
         }
         
-        let selectedImage = retrievedImages[index.item]
+        let selectedData = photos[index.item]
         
         if segue.identifier == Constants.Storyboard.photoDetailsVC {
             guard let destinationVC = segue.destination as? DetailsVC else {
                 return
             }
-            destinationVC.image = selectedImage
+            destinationVC.imageDocument = selectedData
 //            destinationVC.descriptionHandler = { (text:String?) -> Void in
 //                self.descriptions[index.item] = text
 //                destinationVC.locationHandler = { text in
@@ -84,7 +85,7 @@ class PhotosCollectionVC: UIViewController {
 
 extension PhotosCollectionVC: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedData = retrievedImages[indexPath.item]
+        let selectedData = photos[indexPath.item]
         self.performSegue(withIdentifier: Constants.Storyboard.photoDetailsVC, sender: selectedData)
     }
 }
@@ -93,7 +94,7 @@ extension PhotosCollectionVC:UICollectionViewDataSource {
 //        DispatchQueue.main.async {
 //            self.imageCollectionView.reloadData()
 //        }
-        return retrievedImages.count
+        return photos.count//retrievedImages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -101,7 +102,10 @@ extension PhotosCollectionVC:UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         //cell.folderIcon.image = UIImage(systemName: "folder.fill")
-        cell.configureImage(image: retrievedImages[indexPath.item] )
+        let photoDoc = photos[indexPath.item]
+        //cell.configureImage(image: photos[indexPath.item].image )
+        cell.configureImage(image: photoDoc.image )
+        cell.configureDateLabel(dateLabel: photoDoc.photoDocument.timeStamp)
         
         return cell
     }
@@ -111,7 +115,7 @@ extension PhotosCollectionVC:UICollectionViewDataSource {
 
 extension PhotosCollectionVC {
     func retrieveFolderDocument(folderName:String){
-        FolderNames.retrieveFolderDocument(folderName: folderName) { folderDocuments in
+        RetrieveFolders.retrieveFolderDocument(folderName: folderName) { folderDocuments in
             if let folderDocuments = folderDocuments {
                 if folderDocuments.isEmpty{
                     self.availablePhotosLabel.text = "This folder is empty"
@@ -119,7 +123,8 @@ extension PhotosCollectionVC {
                 else{
                     // use retrieved folder douments
                     self.photoFiles = folderDocuments
-                    self.retrievePhotos()
+                    // self.retrievePhotos()
+                    self.retrieveImages()
                 }
 
             }
@@ -162,7 +167,7 @@ extension PhotosCollectionVC {
                     }
                 }
             }
-        }
+        } // end of for loop
 
         dispatchGroup.notify(queue: .main) {
             self.imageCollectionView.reloadData()
@@ -204,5 +209,59 @@ extension PhotosCollectionVC {
             } // end of completion
         } // end of loop
          */
+    }
+    
+    func retrieveImages(){
+        // Get a reference to storage
+        let storageRef = Storage.storage().reference()
+
+        // Create a dispatch group
+        let dispatchGroup = DispatchGroup()
+
+        for index in 0..<photoFiles.count {
+            let path = photoFiles[index].url
+
+            // Enter the dispatch group before starting the asynchronous task
+            dispatchGroup.enter()
+
+            retrieveImage(storageRef: storageRef, path: path) { retrievedImage, error in
+                defer {
+                    // Leave the dispatch group when the task is done
+                    dispatchGroup.leave()
+                }
+
+                if error == nil, let retrievedImage = retrievedImage {
+                    let photoDoc = PhotoAndFile(photoDocument: self.photoFiles[index], image: retrievedImage)
+                    self.photos.append(photoDoc)
+                }
+                else {
+                    print("An error occured \(String(describing: error))")
+                }
+            }
+        }
+
+        // Notify when all tasks in the dispatch group are finished
+        dispatchGroup.notify(queue: .main) {
+            self.imageCollectionView.reloadData()
+            print("All images retrieved")
+        }
+        
+    }
+    
+    // retrieves a single image
+    func retrieveImage(storageRef:StorageReference, path:String, completion: @escaping (UIImage?, Error?) -> Void){
+          
+        let imageRef = storageRef.child(path)
+        
+        imageRef.getData(maxSize: 5*1024*1024) { data, error in
+            
+            if error == nil, let data = data, let image = UIImage(data: data){
+                completion(image, nil)
+            }
+            else {
+                completion(nil, error)
+                print("Cannot download image data or an error ocurred")
+            }
+        } // end of imageRef
     }
 }

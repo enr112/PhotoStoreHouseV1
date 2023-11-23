@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseFirestore
 
-struct FolderNames{
+struct RetrieveFolders{
     
     static func retrieveFolderNames(completion: @escaping ([String]?) -> Void) {
             // Get a reference to the Firestore database

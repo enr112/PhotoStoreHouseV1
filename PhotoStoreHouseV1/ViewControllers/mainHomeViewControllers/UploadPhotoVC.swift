@@ -167,7 +167,7 @@ class UploadPhotoVC: UIViewController {
         //--------------------------------------
         let date = Date()
         let formatter = DateFormatter()
-        formatter.dateFormat = "mm-dd-yyyy hh:mm a"
+        formatter.dateFormat = "MM-dd-yyyy hh:mm a"
         let result = formatter.string(from: date)
         //--------------------------------------------
         return result
@@ -175,7 +175,7 @@ class UploadPhotoVC: UIViewController {
     
     // get the list of folders available
     func getFolderNames(){
-        FolderNames.retrieveFolderNames { folderNames in
+        RetrieveFolders.retrieveFolderNames { folderNames in
             if let folderNames = folderNames {
                 // Use the retrieved folder names here
                 self.foldersAvailable = folderNames

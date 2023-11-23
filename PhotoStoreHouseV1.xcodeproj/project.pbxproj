@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2E2DA98F2AFFC58D00720ABF /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 2E2DA98E2AFFC58D00720ABF /* DropDown */; };
-		2E2DA9DF2B00121D00720ABF /* RetrieveFolderNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2DA9DE2B00121D00720ABF /* RetrieveFolderNames.swift */; };
+		2E2DA9DF2B00121D00720ABF /* RetrieveFolders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2DA9DE2B00121D00720ABF /* RetrieveFolders.swift */; };
 		2E5AFF6F2ADCA9F8002749AE /* uploadPhotoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5AFF6E2ADCA9F8002749AE /* uploadPhotoClass.swift */; };
 		2E66F5412AB7EAC400DDA178 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66F5402AB7EAC400DDA178 /* AppDelegate.swift */; };
 		2E66F5432AB7EAC400DDA178 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66F5422AB7EAC400DDA178 /* SceneDelegate.swift */; };
@@ -46,7 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2E2DA9DE2B00121D00720ABF /* RetrieveFolderNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrieveFolderNames.swift; sourceTree = "<group>"; };
+		2E2DA9DE2B00121D00720ABF /* RetrieveFolders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrieveFolders.swift; sourceTree = "<group>"; };
 		2E5AFF6E2ADCA9F8002749AE /* uploadPhotoClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uploadPhotoClass.swift; sourceTree = "<group>"; };
 		2E66F53D2AB7EAC400DDA178 /* PhotoStoreHouseV1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoStoreHouseV1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E66F5402AB7EAC400DDA178 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -186,7 +186,7 @@
 				2E8184962AC6320F005771C7 /* CorrectFormat.swift */,
 				2EFCC5422AE890500059B14E /* UIResponder+Utils.swift */,
 				2EC9DE102AEDEA54004D2CA4 /* ViewController+Utils.swift */,
-				2E2DA9DE2B00121D00720ABF /* RetrieveFolderNames.swift */,
+				2E2DA9DE2B00121D00720ABF /* RetrieveFolders.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -285,7 +285,7 @@
 				2EB62A5D2ABA50BF00944875 /* Utilities.swift in Sources */,
 				2E66F5582AB7EB7300DDA178 /* SignUpViewController.swift in Sources */,
 				2E829CAA2AFB25D300309F55 /* PhotoStruct.swift in Sources */,
-				2E2DA9DF2B00121D00720ABF /* RetrieveFolderNames.swift in Sources */,
+				2E2DA9DF2B00121D00720ABF /* RetrieveFolders.swift in Sources */,
 				2E5AFF6F2ADCA9F8002749AE /* uploadPhotoClass.swift in Sources */,
 				2E8475402AC4FB1B008304DC /* CreateFolderViewController.swift in Sources */,
 				2E8184972AC6320F005771C7 /* CorrectFormat.swift in Sources */,

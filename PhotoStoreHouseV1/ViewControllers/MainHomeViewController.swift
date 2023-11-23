@@ -7,10 +7,12 @@
 
 import UIKit
 import FirebaseFirestore
+import FirebaseAuth
 
 class MainHomeViewController: UIViewController {
     @IBOutlet weak var availableFoldersLabel: UILabel!
     
+    @IBOutlet weak var signOutButton: UIBarButtonItem!
     var folderNames = [String]()
     
     var folderNamesHandler: (([String]) -> Void)?
@@ -104,7 +106,16 @@ class MainHomeViewController: UIViewController {
         }
         return orientaion
     }
+    // sign user out
 
+    @IBAction func signOutTapped(_ sender: UIBarButtonItem) {
+        do {
+            try Auth.auth().signOut()
+        } catch let signOutError as NSError {
+            print("Error signing out: \(signOutError)")
+        }
+    }
+    
 }
 
 //MARK -manage folders collection view
@@ -140,7 +151,7 @@ extension MainHomeViewController: UICollectionViewDelegate, UICollectionViewData
 extension MainHomeViewController {
     
     func retrieveFolderNames(){
-        FolderNames.retrieveFolderNames { folderNames in
+        RetrieveFolders.retrieveFolderNames { folderNames in
             if let folderNames = folderNames {
                 // Use the retrieved folder names here
                 self.folderNames = folderNames
