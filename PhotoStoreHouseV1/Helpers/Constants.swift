@@ -17,6 +17,7 @@ struct Constants {
         static let toPhotosCollectionVc = "toPhotosColectionVC"
         static let photoCell = "photoCell"
         static let photoDetailsVC = "toDetailsVC"
+        static let initialNavController = "initialNavController"
     }
 }
 // https://www.youtube.com/watch?v=ZmPJBiwgZoQ

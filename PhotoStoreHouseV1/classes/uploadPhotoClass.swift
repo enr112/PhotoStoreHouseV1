@@ -52,7 +52,13 @@ class UploadPhotos{
                 // upload data to firestorage
                 let uploadTask = fileRef.putData(imageData!, metadata: dataType) { metadata, error in
                     
-                    if error == nil && metadata != nil {
+                    if let error = error{
+                        print("An error ocurred --> \(error.localizedDescription)")
+                        return
+                    }
+                    print("Image was succefully uploaded. recieved metadata --> \(String(describing: metadata))")
+                    
+                    if metadata != nil {
                         
                        // self.storeRef.collection("images").document().setData(["url":path])
                         self.storeRef.collection("folders").document(folderName).collection("photos").document().setData(["name": name, "description":desc, "location":loc, "timeStamp":timeStamp, "associatedUser": userID, "url":path, "belongsToFolder":folderName]){
@@ -61,11 +67,21 @@ class UploadPhotos{
                             //TODO: If there were no errors, do something
                             if error == nil{
                                 print("Saved reference to firestore db successfully")
-                                print("Put is complete --> \(String(describing: metadata))")
+                            }
+                            else{
+                                print("image was uploaded but reference to image could not be saved in firestore")
                             }
                         }
                     }
+                    // Increment index inside the completion block
+                    //index += 1
                   }
+                uploadTask.observe(.progress){ [weak self] (snapshot) in
+                    guard let fracCompletedValue = snapshot.progress?.fractionCompleted else {return}
+                    print("task is \(fracCompletedValue) complete")
+                    // self.progressView.progress = Float(fracCompletedValue)
+                    
+                }
                 index += 1
             } // end of for loop
         }

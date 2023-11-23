@@ -111,6 +111,13 @@ class MainHomeViewController: UIViewController {
     @IBAction func signOutTapped(_ sender: UIBarButtonItem) {
         do {
             try Auth.auth().signOut()
+            
+                // Navigate to the initial view controller
+                let initialNavController:UINavigationController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.initialNavController) as! UINavigationController
+
+                view.window?.rootViewController = initialNavController
+                view.window?.makeKeyAndVisible()
+            
         } catch let signOutError as NSError {
             print("Error signing out: \(signOutError)")
         }
