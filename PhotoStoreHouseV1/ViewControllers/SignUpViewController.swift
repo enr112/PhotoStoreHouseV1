@@ -106,7 +106,8 @@ class SignUpViewController: UIViewController {
                                                                                     "jobtitle": jobTile,
                                                                                     "userID":authResult!.user.uid]){ (error) in
                         if error != nil {
-                            self.showError("Could not save user data")
+                            self.showError("User was created but Could not save user data")
+                            print("User was created but Could not save user data \(String(describing: error?.localizedDescription))")
                         }
                     }
                     // Transition to main home screen
