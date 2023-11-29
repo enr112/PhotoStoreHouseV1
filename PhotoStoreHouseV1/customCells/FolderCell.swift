@@ -16,8 +16,15 @@ class FolderCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.folderNameLabel.textAlignment = .center
+        // self.folderNameLabel.textAlignment = .center
         //self.folderNameLabel.backgroundColor = .lightGray
+    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.folderNameLabel.textAlignment = .center
+        // imageView.translatesAutoresizingMaskIntoConstraints = false
+        folderIconImageView.heightAnchor.constraint(equalToConstant: self.bounds.height * 0.80).isActive = true
+       // imageView.widthAnchor.constraint(equalToConstant: self.bounds.width).isActive = true
     }
     
     public func configureLabel(label:String){
