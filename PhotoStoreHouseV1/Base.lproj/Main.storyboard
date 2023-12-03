@@ -255,6 +255,103 @@
             </objects>
             <point key="canvasLocation" x="1658" y="318"/>
         </scene>
+        <!--Create Folder View Controller-->
+        <scene sceneID="1X1-lo-twG">
+            <objects>
+                <viewController storyboardIdentifier="createFolderVC" modalPresentationStyle="overCurrentContext" id="mwz-tN-Fae" customClass="CreateFolderViewController" customModule="PhotoStoreHouseV1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XUI-Ve-90j">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="g9I-SB-qUz">
+                                <rect key="frame" x="32" y="462" width="350" height="400"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ch6-Di-WiC">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="400"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_3" translatesAutoresizingMaskIntoConstraints="NO" id="NiH-7j-Ul8">
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="400"/>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="z46-WW-ljc">
+                                                <rect key="frame" x="0.0" y="67.5" width="350" height="265"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDF-UT-jlB">
+                                                        <rect key="frame" x="153" y="0.0" width="44.5" height="55"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <color key="textColor" systemColor="systemRedColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter a unique folder name, no spaces" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6na-n1-Iy9">
+                                                        <rect key="frame" x="30" y="70" width="290" height="55"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="yve-Vv-lXY">
+                                                        <rect key="frame" x="41.5" y="140" width="267" height="55"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Iw-bG-W0G">
+                                                                <rect key="frame" x="0.0" y="0.0" width="124.5" height="55"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="55" id="OeS-Zs-oYs"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" title="cancel"/>
+                                                                <connections>
+                                                                    <action selector="cancelButtonTapped:" destination="mwz-tN-Fae" eventType="touchUpInside" id="xOW-m1-Iv1"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="erm-Of-sxG">
+                                                                <rect key="frame" x="142.5" y="0.0" width="124.5" height="55"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" title="create Folder" titleAlignment="center"/>
+                                                                <connections>
+                                                                    <action selector="createFolderButtonTapped:" destination="mwz-tN-Fae" eventType="touchUpInside" id="Sj1-z1-bGN"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="1Iw-bG-W0G" firstAttribute="height" secondItem="erm-Of-sxG" secondAttribute="height" id="roZ-Qn-Kbp"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="folder created" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLE-SC-esf">
+                                                        <rect key="frame" x="121.5" y="210" width="107" height="55"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="NiH-7j-Ul8" firstAttribute="leading" secondItem="ch6-Di-WiC" secondAttribute="leading" id="1wz-hG-fXa"/>
+                                            <constraint firstAttribute="height" constant="400" id="AYR-1A-xZ5"/>
+                                            <constraint firstItem="z46-WW-ljc" firstAttribute="leading" secondItem="ch6-Di-WiC" secondAttribute="leading" id="Cc1-NR-jgJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="z46-WW-ljc" secondAttribute="trailing" id="DWw-Ea-eg3"/>
+                                            <constraint firstItem="NiH-7j-Ul8" firstAttribute="top" secondItem="ch6-Di-WiC" secondAttribute="top" id="Ovp-Al-X9T"/>
+                                            <constraint firstAttribute="trailing" secondItem="NiH-7j-Ul8" secondAttribute="trailing" id="WpS-Fe-k1J"/>
+                                            <constraint firstAttribute="width" constant="350" id="ayw-0G-LiS"/>
+                                            <constraint firstItem="z46-WW-ljc" firstAttribute="centerY" secondItem="ch6-Di-WiC" secondAttribute="centerY" id="gQ7-Ce-jgj"/>
+                                            <constraint firstAttribute="bottom" secondItem="NiH-7j-Ul8" secondAttribute="bottom" id="l5C-Dn-lF3"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1a8-0b-KK3"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="1Iw-bG-W0G" id="u2P-cA-ReH"/>
+                        <outlet property="createFolderButton" destination="erm-Of-sxG" id="xkg-aN-ZU0"/>
+                        <outlet property="errorLabel" destination="CDF-UT-jlB" id="Fnd-wi-8dX"/>
+                        <outlet property="folderNameTextField" destination="6na-n1-Iy9" id="DDL-qX-fow"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rIw-fD-9x8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="795.6521739130435" y="751.33928571428567"/>
+        </scene>
         <!--Main Home View Controller-->
         <scene sceneID="MSf-o4-7WY">
             <objects>
@@ -290,7 +387,7 @@
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" image="80-create"/>
                                                                 <connections>
-                                                                    <segue destination="PJy-hE-Jq2" kind="show" id="PkG-cs-lT7"/>
+                                                                    <action selector="createFolderButtonTapped:" destination="5ub-ir-RKg" eventType="touchUpInside" id="FKE-Jd-VZh"/>
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Folder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaM-M0-LD2">
@@ -476,7 +573,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0oH-om-5bB" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1186.9565217391305" y="1418.9732142857142"/>
+            <point key="canvasLocation" x="797" y="1419"/>
         </scene>
         <!--Take PhotoVC-->
         <scene sceneID="9wT-8J-XZg">
@@ -578,99 +675,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B9j-Me-Ocp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2529" y="1318"/>
-        </scene>
-        <!--Create Folder View Controller-->
-        <scene sceneID="401-8V-nCR">
-            <objects>
-                <viewController id="PJy-hE-Jq2" customClass="CreateFolderViewController" customModule="PhotoStoreHouseV1" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="mVT-8C-QXz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PuO-tl-EDh">
-                                <rect key="frame" x="48" y="320" width="318" height="464"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vgW-Ot-fZf">
-                                        <rect key="frame" x="0.0" y="0.0" width="318" height="330"/>
-                                        <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter folder name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S8F-MO-m0h">
-                                                <rect key="frame" x="0.0" y="0.0" width="318" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="VNV-aJ-Yla"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zy1-ln-ar8">
-                                                <rect key="frame" x="0.0" y="70" width="318" height="50"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="90" translatesAutoresizingMaskIntoConstraints="NO" id="l3a-Pd-vpb">
-                                                <rect key="frame" x="0.0" y="140" width="318" height="50"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ztS-8t-ECW">
-                                                        <rect key="frame" x="0.0" y="0.0" width="114" height="50"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="cancel"/>
-                                                        <connections>
-                                                            <action selector="cancelButtonTapped:" destination="PJy-hE-Jq2" eventType="touchUpInside" id="EDT-zn-PIS"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bM-gG-C6c">
-                                                        <rect key="frame" x="204" y="0.0" width="114" height="50"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="done"/>
-                                                        <connections>
-                                                            <action selector="doneButtonTapped:" destination="PJy-hE-Jq2" eventType="touchUpInside" id="fu1-aX-MaO"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZ1-yU-ZnV">
-                                                <rect key="frame" x="0.0" y="210" width="318" height="120"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <color key="highlightedColor" systemColor="systemRedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="l3a-Pd-vpb" firstAttribute="centerY" secondItem="vgW-Ot-fZf" secondAttribute="centerY" id="ffK-PI-CWX"/>
-                                            <constraint firstItem="l3a-Pd-vpb" firstAttribute="height" secondItem="S8F-MO-m0h" secondAttribute="height" id="kBN-td-Qge"/>
-                                            <constraint firstItem="zy1-ln-ar8" firstAttribute="height" secondItem="S8F-MO-m0h" secondAttribute="height" id="lv9-L8-euj"/>
-                                        </constraints>
-                                    </stackView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.81568627450980391" green="0.90588235294117647" blue="0.82352941176470584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="vgW-Ot-fZf" firstAttribute="top" secondItem="PuO-tl-EDh" secondAttribute="top" id="2Aq-vL-xB5"/>
-                                    <constraint firstItem="vgW-Ot-fZf" firstAttribute="leading" secondItem="PuO-tl-EDh" secondAttribute="leading" id="M5K-8H-zl5"/>
-                                    <constraint firstAttribute="trailing" secondItem="vgW-Ot-fZf" secondAttribute="trailing" id="qdW-Tj-FrA"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="sas-aR-Gty"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="PuO-tl-EDh" firstAttribute="leading" secondItem="mVT-8C-QXz" secondAttribute="leadingMargin" constant="28" id="9MR-Aj-R1X"/>
-                            <constraint firstItem="PuO-tl-EDh" firstAttribute="top" secondItem="mVT-8C-QXz" secondAttribute="topMargin" constant="228" id="GyH-wk-RU0"/>
-                            <constraint firstItem="sas-aR-Gty" firstAttribute="bottom" secondItem="PuO-tl-EDh" secondAttribute="bottom" constant="78" id="WqZ-wF-hSL"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="PuO-tl-EDh" secondAttribute="trailing" constant="28" id="qY2-pp-et1"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="p2m-1V-whK"/>
-                    <connections>
-                        <outlet property="cancelButton" destination="ztS-8t-ECW" id="9rC-y0-WPU"/>
-                        <outlet property="doneButton" destination="4bM-gG-C6c" id="Evn-59-u8z"/>
-                        <outlet property="emailTextField" destination="zy1-ln-ar8" id="nqg-VR-lTL"/>
-                        <outlet property="errorLabel" destination="HZ1-yU-ZnV" id="y6Q-gA-0w6"/>
-                        <outlet property="folderNameTextField" destination="S8F-MO-m0h" id="w6I-T3-Fge"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nPd-Sx-gu3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2446" y="657"/>
+            <point key="canvasLocation" x="1658" y="1419"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KaN-E3-yzI">
@@ -688,7 +693,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eH5-s3-Mdk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="314" y="1419"/>
+            <point key="canvasLocation" x="-87" y="1419"/>
         </scene>
         <!--Upload PhotoVC-->
         <scene sceneID="vhY-Fw-pEG">

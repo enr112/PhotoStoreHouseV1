@@ -26,12 +26,16 @@ class PhotoDescriptionVC: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
+        configureKeyboardHandling()
         setUp()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(tapGesture)
         
+    }
+    deinit {
+        // Remove keyboard handling when the view controller is deallocated
+        removeKeyboardHandling()
     }
     private func setUp(){
         imageView.image = recievedData
@@ -50,7 +54,7 @@ class PhotoDescriptionVC: UIViewController {
         
         saveButton.isHidden = true
         
-        setupKeyboardHidding()
+       // setupKeyboardHidding()
         self.photoDescription.delegate = self
         self.photoLocation.delegate = self
     }
@@ -60,16 +64,16 @@ class PhotoDescriptionVC: UIViewController {
 //        self.view.endEditing(true)
 //        //self.photoDescription.resignFirstResponder()
 //    }
-    
+ /*
     private func setupKeyboardHidding(){
         NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
 //        NotificationCenter.default.addObserver(self, selector: #selector(PhotoDescriptionVC.keyboardWillShow(sender:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
 //
 //        NotificationCenter.default.addObserver(self, selector: #selector(PhotoDescriptionVC.keyboardWillShow(sender:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
     }
+  */
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
@@ -126,8 +130,30 @@ class PhotoDescriptionVC: UIViewController {
         }
        */
     }
-    
+    // shift view when keyboard appears
+    override func keyboardWillShow(sender: NSNotification){
+        guard let userInfo = sender.userInfo,
+              let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
+              let currentTextView = UIResponder.currentFirst() as? UITextView else {
+            return
+        }
+        // check if the top of the keyboard is above the bottom of the currently focused textbox
+        let keyboardTopY = keyboardFrame.cgRectValue.origin.y
+        let convertedTextViewFrame = view.convert(currentTextView.frame, from: currentTextView.superview)
+        let textViewdBottomY = convertedTextViewFrame.origin.y + convertedTextViewFrame.size.height
+
+        // if textField bottom is below keyboard bottom - bump the frame up
+       if textViewdBottomY > keyboardTopY {
+            let textBoxY = convertedTextViewFrame.origin.y
+            let newFrameY = (textBoxY - keyboardTopY / 2) * -1
+            view.frame.origin.y = newFrameY
+ 
+        }
+
+
+    }
 }
+/*
 extension PhotoDescriptionVC {
     
     // shift view when keyboard appears
@@ -160,7 +186,7 @@ extension PhotoDescriptionVC {
     
     
 }
-
+*/
 extension PhotoDescriptionVC: UITextViewDelegate{
     func textViewDidBeginEditing(_ textView: UITextView){
        // saveButton.isHidden = false

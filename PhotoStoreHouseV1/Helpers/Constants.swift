@@ -18,6 +18,7 @@ struct Constants {
         static let photoCell = "photoCell"
         static let photoDetailsVC = "toDetailsVC"
         static let initialNavController = "initialNavController"
+        static let createFolderVC = "createFolderVC"
     }
 }
 // https://www.youtube.com/watch?v=ZmPJBiwgZoQ

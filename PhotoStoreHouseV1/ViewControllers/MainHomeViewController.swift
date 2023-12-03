@@ -24,6 +24,7 @@ class MainHomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureKeyboardHandling()
         
         retrieveFolderNames()
         // set title
@@ -36,6 +37,10 @@ class MainHomeViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(refreshFolderNames), for: UIControl.Event.valueChanged)
         foldersCollectionView.refreshControl = refreshControl
         
+    }
+    deinit {
+        // Unregister from keyboard notifications when the view controller is deallocated
+        NotificationCenter.default.removeObserver(self)
     }
     func setLayout(){
         let device = UIDevice.current.model
@@ -123,6 +128,39 @@ class MainHomeViewController: UIViewController {
         }
     }
     
+    @IBAction func createFolderButtonTapped(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+
+        if let popUpViewController = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.createFolderVC) as? CreateFolderViewController {
+            popUpViewController.modalPresentationStyle = .popover
+            popUpViewController.preferredContentSize = CGSizeMake(350, 400)
+            print("Presented view controller size: \(popUpViewController.view.frame.size)")
+
+            if let popoverPresentationController = popUpViewController.popoverPresentationController {
+                popoverPresentationController.sourceView = sender
+                popoverPresentationController.sourceRect = sender.bounds
+                //popoverPresentationController.sourceRect = CGRect(x: sender.bounds.midX, y: sender.bounds.minY, width: 0, height: 0)
+                popoverPresentationController.permittedArrowDirections = .up
+
+//                popUpViewController.preferredContentSize = CGSizeMake(350, 400)
+                // Set up the delegate for more control
+                popoverPresentationController.delegate = self
+
+                // Present the view controller
+//                present(popUpViewController, animated: true) {
+//                    // Check the size after presentation
+//                    print("Presented view controller size: \(popUpViewController.view.frame.size)")
+//                }
+            }
+            // Present the view controller
+            present(popUpViewController, animated: true) {
+                // Check the size after presentation
+                print("Presented view controller size: \(popUpViewController.view.frame.size)")
+            }
+        }
+        
+    }
+    
 }
 
 //MARK -manage folders collection view
@@ -179,5 +217,13 @@ extension MainHomeViewController {
     @objc func refreshFolderNames(){
         retrieveFolderNames()
         self.foldersCollectionView.refreshControl?.endRefreshing()
+    }
+}
+extension MainHomeViewController: UIPopoverPresentationControllerDelegate{
+//    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+//        return .popover
+//    }
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
     }
 }

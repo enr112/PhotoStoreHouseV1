@@ -28,9 +28,14 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        configureKeyboardHandling()
         // Do any additional setup after loading the view.
         setUpElements()
+        
+    }
+    deinit {
+        // Remove keyboard handling when the view controller is deallocated
+        removeKeyboardHandling()
     }
     
     func setUpElements(){
@@ -43,6 +48,19 @@ class SignUpViewController: UIViewController {
         Utilities.styleTextField(emailTextField)
         Utilities.styleTextField(passwordTextField)
         Utilities.styleFilledButton(signUpButton)
+        
+        firstNameTextField.delegate = self
+        lastNameTextField.delegate = self
+        jobTitleTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        
+        firstNameTextField.returnKeyType = UIReturnKeyType.done
+        lastNameTextField.returnKeyType = UIReturnKeyType.done
+        jobTitleTextField.returnKeyType = UIReturnKeyType.done
+        emailTextField.returnKeyType = UIReturnKeyType.done
+        passwordTextField.returnKeyType = UIReturnKeyType.done
+        
     }
     // Validates text fields, return nil if data are correct otherwise return error message
     func validateTextField() -> String? {
@@ -146,4 +164,16 @@ class SignUpViewController: UIViewController {
         
     }
     
+}
+extension SignUpViewController:UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // This method is called when the return key is tapped on the keyboard
+        textField.resignFirstResponder() // Dismiss the keyboard
+        return true
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // This method is called when the user taps outside the text field
+        view.endEditing(true) // Dismiss the keyboard
+    }
 }

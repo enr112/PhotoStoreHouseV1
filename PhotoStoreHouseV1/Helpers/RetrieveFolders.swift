@@ -10,6 +10,10 @@ import FirebaseFirestore
 
 struct RetrieveFolders{
     
+    enum FolderCreationError: Error {
+        case creationFailed(String)
+    }
+    
     static func retrieveFolderNames(completion: @escaping ([String]?) -> Void) {
             // Get a reference to the Firestore database
             let db = Firestore.firestore()
@@ -85,5 +89,28 @@ struct RetrieveFolders{
             } // end of else
         } // end folderRef
         
+    }
+    
+    static func createFolderDocument(folderName: String, completion: @escaping (Result<String, FolderCreationError>) -> Void) {
+        let db = Firestore.firestore()
+
+        // Add a placeholder field or use the document ID as a value
+        let data: [String: Any] = [
+            "placeholderField": FieldValue.serverTimestamp() // Use a placeholder field
+        ]
+
+        // Specify the custom document ID
+        let documentReference = db.collection("folders").document(folderName)
+
+        // Set the data for the document
+        documentReference.setData(data) { (error) in
+            if let error = error {
+                print("Error adding document: \(error)")
+                completion(.failure(.creationFailed("Folder creation failed: \(error.localizedDescription)")))
+            } else {
+                print("Document added with ID: \(folderName)")
+                completion(.success("Folder \(folderName) created successfully"))
+            }
+        }
     }
 }
