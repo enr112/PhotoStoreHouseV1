@@ -12,6 +12,7 @@ struct RetrieveFolders{
     
     enum FolderCreationError: Error {
         case creationFailed(String)
+        case folderExists
     }
     
     static func retrieveFolderNames(completion: @escaping ([String]?) -> Void) {
@@ -92,25 +93,36 @@ struct RetrieveFolders{
     }
     
     static func createFolderDocument(folderName: String, completion: @escaping (Result<String, FolderCreationError>) -> Void) {
-        let db = Firestore.firestore()
+            let db = Firestore.firestore()
 
-        // Add a placeholder field or use the document ID as a value
-        let data: [String: Any] = [
-            "placeholderField": FieldValue.serverTimestamp() // Use a placeholder field
-        ]
+            let collectionReference = db.collection("folders")
 
-        // Specify the custom document ID
-        let documentReference = db.collection("folders").document(folderName)
+            // Check if the folder already exists
+            collectionReference.document(folderName).getDocument { (snapshot, error) in
+                if let error = error {
+                    print("Error checking folder existence: \(error)")
+                    completion(.failure(.creationFailed("Error checking folder existence")))
+                } else if snapshot?.exists == true {
+                    // Folder already exists
+                    completion(.failure(.folderExists))
+                } else {
+                    // Folder does not exist, proceed with creating it
+                    let data: [String: Any] = [
+                        "placeholderField": FieldValue.serverTimestamp()
+                    ]
 
-        // Set the data for the document
-        documentReference.setData(data) { (error) in
-            if let error = error {
-                print("Error adding document: \(error)")
-                completion(.failure(.creationFailed("Folder creation failed: \(error.localizedDescription)")))
-            } else {
-                print("Document added with ID: \(folderName)")
-                completion(.success("Folder \(folderName) created successfully"))
+                    let documentReference = collectionReference.document(folderName)
+
+                    documentReference.setData(data) { (error) in
+                        if let error = error {
+                            print("Error adding document: \(error)")
+                            completion(.failure(.creationFailed("Folder creation failed: \(error.localizedDescription)")))
+                        } else {
+                            print("Document added with ID: \(folderName)")
+                            completion(.success("Folder \(folderName) created successfully"))
+                        }
+                    }
+                }
             }
         }
-    }
 }

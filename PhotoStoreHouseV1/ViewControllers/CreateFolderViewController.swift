@@ -24,6 +24,7 @@ class CreateFolderViewController: UIViewController {
         //view.widthAnchor.constraint(equalToConstant: 350).isActive = true
         folderNameTextField.delegate = self
         folderNameTextField.returnKeyType = .done
+        folderNameTextField.clearButtonMode = .whileEditing
         
         
         // Add explicit height constraint
@@ -47,6 +48,7 @@ class CreateFolderViewController: UIViewController {
     }
     
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
+        folderNameTextField.resignFirstResponder()
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -56,8 +58,18 @@ class CreateFolderViewController: UIViewController {
             errorLabel.alpha = 1
             return
         }
+        
 
         if let folderName = folderNameTextField.text {
+            
+            if !CorrectFormat.isValidFolderName(folderName){
+                errorLabel.text = "Incorrect name format (cannot contain spaces, starts or contains special symbols, should be at least 3 characters long). Only symbols allowed within name are: - and _"
+                errorLabel.font = UIFont.systemFont(ofSize: 15)
+                errorLabel.alpha = 1
+                return
+            }
+            
+            /*
             RetrieveFolders.createFolderDocument(folderName: folderName) { result in
                 switch result {
                 case .success(let message):
@@ -72,6 +84,34 @@ class CreateFolderViewController: UIViewController {
                     print("Could not complete task: \(error)")
                     self.errorLabel.text = "Folder creation failed"
                     self.errorLabel.alpha = 1
+                }
+            }
+            */
+            RetrieveFolders.createFolderDocument(folderName: folderName) { result in
+                switch result {
+                case .success(let message):
+                    // Handle success as needed
+                    print("Task was successful")
+                    self.errorLabel.textColor = UIColor.black
+                    self.errorLabel.text = message
+                    self.cancelButton.setTitle("Exit", for: .normal)
+                    self.createFolderButton.isEnabled = false
+                    self.errorLabel.alpha = 1
+                    self.folderNameTextField.resignFirstResponder()
+
+                case .failure(let error):
+                    switch error {
+                    case .folderExists:
+                        print("Folder already exists \(error.localizedDescription)")
+                        // Handle the case where the folder already exists
+                        self.errorLabel.text = "Folder already exists-->\(error.localizedDescription)"
+                        self.errorLabel.alpha = 1
+                    default:
+                        print("Could not complete task: \(error.localizedDescription)")
+                        // Handle other failure cases
+                        self.errorLabel.text = "Could not create folder--> \(error.localizedDescription)"
+                        self.errorLabel.alpha = 1
+                    }
                 }
             }
         }
@@ -92,4 +132,10 @@ extension CreateFolderViewController:UITextFieldDelegate{
         // This method is called when the user taps outside the text field
         view.endEditing(true) // Dismiss the keyboard
     }
+//    func textFieldShouldClear(_ textField: UITextField) -> Bool{
+//        return true
+//    }
+//    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {  //delegate method
+//        return false
+//    }
 }

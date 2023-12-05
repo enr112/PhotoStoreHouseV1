@@ -273,7 +273,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="400"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="z46-WW-ljc">
-                                                <rect key="frame" x="0.0" y="67.5" width="350" height="265"/>
+                                                <rect key="frame" x="0.0" y="102.5" width="350" height="195"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDF-UT-jlB">
                                                         <rect key="frame" x="153" y="0.0" width="44.5" height="55"/>
@@ -313,8 +313,8 @@
                                                             <constraint firstItem="1Iw-bG-W0G" firstAttribute="height" secondItem="erm-Of-sxG" secondAttribute="height" id="roZ-Qn-Kbp"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="folder created" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLE-SC-esf">
-                                                        <rect key="frame" x="121.5" y="210" width="107" height="55"/>
+                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="folder created" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLE-SC-esf">
+                                                        <rect key="frame" x="121.5" y="195" width="107" height="0.0"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
