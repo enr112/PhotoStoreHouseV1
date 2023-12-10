@@ -49,14 +49,61 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1mo-BO-qMb">
+                                <rect key="frame" x="0.0" y="92" width="414" height="475"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="where every snapshot tells a construction tale! " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qa8-nf-mnh">
+                                        <rect key="frame" x="8" y="92" width="398" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGd-5p-nfT">
+                                        <rect key="frame" x="8" y="216.5" width="398" height="61"/>
+                                        <string key="text">Capture the progress, secure the details, and build your project's story. Log in to unfold the journey of your site development .</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🏗️" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHB-d6-ez7">
+                                        <rect key="frame" x="190" y="146.5" width="34" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to SiteSnap!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zHp-Nb-mMy">
+                                        <rect key="frame" x="79" y="50" width="256" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="zGd-5p-nfT" firstAttribute="top" secondItem="hHB-d6-ez7" secondAttribute="bottom" constant="34" id="93u-xw-Lcp"/>
+                                    <constraint firstItem="zHp-Nb-mMy" firstAttribute="centerX" secondItem="1mo-BO-qMb" secondAttribute="centerX" id="HxM-al-7Mj"/>
+                                    <constraint firstItem="zHp-Nb-mMy" firstAttribute="top" secondItem="1mo-BO-qMb" secondAttribute="top" constant="50" id="L5x-16-7Xj"/>
+                                    <constraint firstItem="zGd-5p-nfT" firstAttribute="leading" secondItem="1mo-BO-qMb" secondAttribute="leading" constant="8" id="b8j-aT-NOh"/>
+                                    <constraint firstItem="hHB-d6-ez7" firstAttribute="top" secondItem="qa8-nf-mnh" secondAttribute="bottom" constant="34" id="bIo-ZC-gJz"/>
+                                    <constraint firstItem="hHB-d6-ez7" firstAttribute="centerX" secondItem="1mo-BO-qMb" secondAttribute="centerX" id="dDP-6w-kL7"/>
+                                    <constraint firstItem="qa8-nf-mnh" firstAttribute="top" secondItem="zHp-Nb-mMy" secondAttribute="bottom" constant="12" id="jlk-88-Vwa"/>
+                                    <constraint firstAttribute="trailing" secondItem="qa8-nf-mnh" secondAttribute="trailing" constant="8" id="kIh-WB-xgg"/>
+                                    <constraint firstItem="qa8-nf-mnh" firstAttribute="leading" secondItem="1mo-BO-qMb" secondAttribute="leading" constant="8" id="kpE-hC-irG"/>
+                                    <constraint firstAttribute="trailing" secondItem="zGd-5p-nfT" secondAttribute="trailing" constant="8" id="zzC-0N-lzm"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Mgf-xO-Akb" firstAttribute="top" secondItem="1mo-BO-qMb" secondAttribute="bottom" constant="120" id="4hk-Yf-ufo"/>
+                            <constraint firstItem="1mo-BO-qMb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="GSh-vN-n62"/>
+                            <constraint firstAttribute="trailing" secondItem="1mo-BO-qMb" secondAttribute="trailing" id="Gs5-ku-5iG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Mgf-xO-Akb" secondAttribute="trailing" constant="40" id="LT4-O5-vPo"/>
                             <constraint firstItem="URD-Y2-W8b" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="P7D-Fx-6FH"/>
                             <constraint firstItem="URD-Y2-W8b" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bfk-yN-xHZ"/>
                             <constraint firstItem="Mgf-xO-Akb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="c4h-no-40U"/>
+                            <constraint firstItem="1mo-BO-qMb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gqC-3v-LEb"/>
                             <constraint firstAttribute="trailing" secondItem="URD-Y2-W8b" secondAttribute="trailing" id="iAX-t1-xyH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Mgf-xO-Akb" secondAttribute="bottom" constant="50" id="qOW-pI-pot"/>
                             <constraint firstAttribute="bottom" secondItem="URD-Y2-W8b" secondAttribute="bottom" id="xOJ-89-E8y"/>
@@ -70,7 +117,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="504" y="-27"/>
+            <point key="canvasLocation" x="502.89855072463774" y="-27.455357142857142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gzu-ux-Da3">
@@ -567,6 +614,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="availableFoldersLabel" destination="Nc8-Ht-OCh" id="Ard-IL-rZz"/>
+                        <outlet property="createFolderButtonStack" destination="rHi-N6-h3P" id="rya-xH-qAG"/>
                         <outlet property="foldersCollectionView" destination="E0x-z7-9L1" id="hd7-rT-Nbz"/>
                         <outlet property="signOutButton" destination="O64-bv-TEM" id="B90-mC-hKm"/>
                     </connections>

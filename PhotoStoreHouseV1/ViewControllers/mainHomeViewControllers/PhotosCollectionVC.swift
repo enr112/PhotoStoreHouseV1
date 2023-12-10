@@ -156,7 +156,7 @@ extension PhotosCollectionVC {
 
             dispatchGroup.enter()
 
-            imageRef.getData(maxSize: 5*1024*1024) { data, error in
+            imageRef.getData(maxSize: 15*1024*1024) { data, error in
                 defer {
                     dispatchGroup.leave()
                 }
@@ -177,38 +177,6 @@ extension PhotosCollectionVC {
             backgroundTask = .invalid
         }
         
-/*
-        // loop throught each photo file to get the url and retrieve the actual image
-        for index in 0..<photoFiles.count{
-            
-            let path = photoFiles[index].url
-  
-            // specify the path
-            let imageRef = storageRef.child(path)
-            
-            
-            //retrieve the data
-            imageRef.getData(maxSize: 5*1024*1024) { data, error in
-                // check for errors
-                if let error = error {
-                    print("Error getting image -> \(error)")
-                }
-                else {
-                    if data != nil {
-                        if let image = UIImage(data: data!){
-                            DispatchQueue.main.async {
-                                self.retrievedImages.append(image)
-                            }
-                        }
-                    }
-                    else {
-                        print("cannot retrieve data -> nil value")
-                    }
-                }
-                
-            } // end of completion
-        } // end of loop
-         */
     }
     
     func retrieveImages(){
@@ -253,7 +221,7 @@ extension PhotosCollectionVC {
           
         let imageRef = storageRef.child(path)
         
-        imageRef.getData(maxSize: 5*1024*1024) { data, error in
+        imageRef.getData(maxSize: 8*1024*1024) { data, error in
             
             if error == nil, let data = data, let image = UIImage(data: data){
                 completion(image, nil)

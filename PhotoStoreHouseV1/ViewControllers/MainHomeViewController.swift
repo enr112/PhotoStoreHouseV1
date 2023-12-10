@@ -12,6 +12,7 @@ import FirebaseAuth
 class MainHomeViewController: UIViewController {
     @IBOutlet weak var availableFoldersLabel: UILabel!
     
+    @IBOutlet weak var createFolderButtonStack: UIStackView!
     @IBOutlet weak var signOutButton: UIBarButtonItem!
     var folderNames = [String]()
     
@@ -25,8 +26,10 @@ class MainHomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureKeyboardHandling()
+        createFolderButtonStack.isHidden = true
         
         retrieveFolderNames()
+        showCreateFolderButton()
         // set title
         self.title = "Home"
         setLayout()
@@ -70,7 +73,7 @@ class MainHomeViewController: UIViewController {
         }
         else{
             if device == "iPad"{
-                numOfColumns = 5
+                numOfColumns = 2*5
                 addToHeight = 25
             }
             else {
@@ -159,6 +162,37 @@ class MainHomeViewController: UIViewController {
             }
         }
         
+    }
+    func getUserAccessLevel(completion: @escaping (Int) -> Void) {
+        var userAccessLevel = 1
+
+        let userObj = ManageUsers()
+
+        userObj.getUserDocument { userDoc, error in
+            if let error = error {
+                print("Error retrieving current user: \(error.localizedDescription)")
+            } else if let userDoc = userDoc {
+                print("User fetched successfully: \(userDoc)")
+                userAccessLevel = userDoc.accessLevel
+            } else {
+                print("User document not found or Data is incomplete or of wrong type")
+            }
+
+            // Call the completion handler with the userAccessLevel value
+            completion(userAccessLevel)
+        }
+    }
+    
+    func showCreateFolderButton(){
+        
+        getUserAccessLevel { accessLevel in
+            if accessLevel == 2 || accessLevel == 3 {
+                self.createFolderButtonStack.isHidden = false
+            }
+            else{
+                self.createFolderButtonStack.isHidden = true
+            }
+        }
     }
     
 }

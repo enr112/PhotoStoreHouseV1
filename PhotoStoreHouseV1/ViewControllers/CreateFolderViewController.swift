@@ -32,6 +32,7 @@ class CreateFolderViewController: UIViewController {
         folderNameTextField.layer.borderColor = CGColor(red: 166/255, green: 207/255, blue: 152/255, alpha: 1)
         folderNameTextField.layer.borderWidth = 2.2
         setUpElements()
+        getUser()
     }
     deinit {
         // Remove keyboard handling when the view controller is deallocated
@@ -69,24 +70,6 @@ class CreateFolderViewController: UIViewController {
                 return
             }
             
-            /*
-            RetrieveFolders.createFolderDocument(folderName: folderName) { result in
-                switch result {
-                case .success(let message):
-                    print("Task was successful")
-                    self.errorLabel.shadowColor = UIColor.black
-                    self.errorLabel.text = message
-                    self.cancelButton.setTitle("Exit", for: .normal)
-                    self.createFolderButton.isEnabled = false
-                    self.errorLabel.alpha = 1
-
-                case .failure(let error):
-                    print("Could not complete task: \(error)")
-                    self.errorLabel.text = "Folder creation failed"
-                    self.errorLabel.alpha = 1
-                }
-            }
-            */
             RetrieveFolders.createFolderDocument(folderName: folderName) { result in
                 switch result {
                 case .success(let message):
@@ -118,7 +101,24 @@ class CreateFolderViewController: UIViewController {
         
     }
     
-    
+    // get currently logged in user
+    func getUser(){
+        let userObj = ManageUsers()
+        
+        userObj.getCurrentUser { userDoc, error in
+            if let error = error {
+                print("Error fetching user document: \(error.localizedDescription)")
+
+            }
+            else if let userDoc = userDoc{
+                print("User fetched successfully: \(userDoc)")
+            }
+            else {
+                print("User document not found.")
+            }
+            
+        }
+    }
 
 }
 extension CreateFolderViewController:UITextFieldDelegate{

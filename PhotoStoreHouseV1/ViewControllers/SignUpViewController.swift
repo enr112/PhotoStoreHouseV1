@@ -61,6 +61,8 @@ class SignUpViewController: UIViewController {
         emailTextField.returnKeyType = UIReturnKeyType.done
         passwordTextField.returnKeyType = UIReturnKeyType.done
         
+        emailTextField.keyboardType = UIKeyboardType.emailAddress
+        
     }
     // Validates text fields, return nil if data are correct otherwise return error message
     func validateTextField() -> String? {
@@ -86,7 +88,7 @@ class SignUpViewController: UIViewController {
         
         if CorrectFormat.isPasswordValid(cleanedPassword) == false {
             // password is not secure
-            return "password must contain at least 8 characters, contains a sepcial character, (# $ % @) and a number."
+            return "password must contain at least 8 characters, contains a sepcial character, (# $ % @ etc.) and a number."
         }
         
         return nil
@@ -120,9 +122,11 @@ class SignUpViewController: UIViewController {
                     let db = Firestore.firestore()
                     
                     db.collection("users").addDocument(data: ["firstName": firstName,
-                                                                                    "lastName": lastName,
-                                                                                    "jobtitle": jobTile,
-                                                                                    "userID":authResult!.user.uid]){ (error) in
+                                                                "lastName": lastName,
+                                                                "jobtitle": jobTile,
+                                                                "userID":authResult!.user.uid,
+                                                              "accessLevel": 1
+                                                             ]){ (error) in
                         if error != nil {
                             self.showError("User was created but Could not save user data")
                             print("User was created but Could not save user data \(String(describing: error?.localizedDescription))")
