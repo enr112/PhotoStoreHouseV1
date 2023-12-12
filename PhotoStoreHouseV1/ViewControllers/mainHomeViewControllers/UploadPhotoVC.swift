@@ -40,6 +40,7 @@ class UploadPhotoVC: UIViewController {
     // folder menu
     var folderList = DropDown()
     
+    var circularProgressBar: CircularProgressBar!
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -126,13 +127,31 @@ class UploadPhotoVC: UIViewController {
     @IBAction func uploadPhotoButton(_ sender: UIBarButtonItem) {
         createFolderList(sender) { selectedFolderName in
             if let selectedFolderName = selectedFolderName {
+                
+                // Initialize the circular progress bar
+                self.circularProgressBar = CircularProgressBar(frame: CGRect(x: 200, y: 200, width: 200, height: 200))
+                self.circularProgressBar.tag = 100
+                self.circularProgressBar.center = self.view.center
+                self.view.addSubview(self.circularProgressBar)
+                
                 // create storage reference
                 let storageReference = Storage.storage().reference()
                 // save a reference of the image file into firestore database
                 let db = Firestore.firestore()
                 
                 let uploadPhotos = UploadPhotos(images: self.imageArray, storageRef: storageReference, storeDB: db)
-                uploadPhotos.uploadPhotos(description: self.descriptions, location: self.locations, folderName: selectedFolderName, timeStamp: self.timeStamp())
+                uploadPhotos.uploadPhotos(description: self.descriptions, location: self.locations, folderName: selectedFolderName, timeStamp: self.timeStamp(), progressBar: self.circularProgressBar) {
+                    
+                    // Completion handler - dismiss the progress bar
+                    DispatchQueue.main.async {
+                        if let progressBar = self.view.viewWithTag(100) as? CircularProgressBar {
+                            progressBar.removeFromSuperview()
+                            self.upLoadButton.title = "Upload Completed"
+                            self.upLoadButton.isEnabled = false
+                        }
+                    }
+                    
+                }
             }
             else {
                 return

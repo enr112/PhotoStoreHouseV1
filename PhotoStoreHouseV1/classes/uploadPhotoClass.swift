@@ -22,12 +22,19 @@ class UploadPhotos{
         self.storeRef = storeDB
     }
     
-    func uploadPhotos(description:[Int:String?], location:[Int:String?], folderName:String, timeStamp:String){
-        if !imageArray.isEmpty{
+    func uploadPhotos(description:[Int:String?], location:[Int:String?], folderName:String, timeStamp:String, progressBar:CircularProgressBar?, completion: @escaping () -> Void){
+        guard !imageArray.isEmpty else {
+            // Handle case where imageArray is empty
+            completion()
+            return
+        }
             
             var index = 0
+            let dispatchGroup = DispatchGroup()
             
             for imageItem in imageArray {
+                dispatchGroup.enter()
+
                 // turn image to data
                 let imageData = imageItem.jpegData(compressionQuality: 0.9)
                 // check that we are able to convert it to data
@@ -71,6 +78,7 @@ class UploadPhotos{
                             else{
                                 print("image was uploaded but reference to image could not be saved in firestore")
                             }
+                            dispatchGroup.leave()
                         }
                     }
                     // Increment index inside the completion block
@@ -81,10 +89,19 @@ class UploadPhotos{
                     print("task is \(fracCompletedValue) complete")
                     // self.progressView.progress = Float(fracCompletedValue)
                     
+                    // Update the circular progress bar in the main queue
+                    DispatchQueue.main.async {
+                        progressBar?.setProgress(Float(fracCompletedValue))
+                    }
                 }
                 index += 1
             } // end of for loop
+        
+        dispatchGroup.notify(queue: .main) {
+            // Call completion handler when all images are uploaded
+            completion()
         }
+        
     }
 
     func descriptionArray(desc:[Int:String?], indexKey:Int)->String{

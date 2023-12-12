@@ -30,6 +30,7 @@
 		2E8475402AC4FB1B008304DC /* CreateFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E84753F2AC4FB1B008304DC /* CreateFolderViewController.swift */; };
 		2E875CAB2B02E25A00913F97 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E875CAA2B02E25A00913F97 /* PhotoCell.swift */; };
 		2E88CA9F2AF81AF70032416E /* FolderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E88CA9E2AF81AF70032416E /* FolderCell.swift */; };
+		2E924DEC2B27E5EE00CC64CD /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E924DEB2B27E5EE00CC64CD /* CircularProgressBar.swift */; };
 		2EB62A5D2ABA50BF00944875 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB62A5C2ABA50BF00944875 /* Utilities.swift */; };
 		2EBB082D2B1C09FD008A0FEA /* ViewController+KeyboardHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBB082C2B1C09FD008A0FEA /* ViewController+KeyboardHandling.swift */; };
 		2EC9926E2B1EBA45007D28B8 /* ManageUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC9926D2B1EBA45007D28B8 /* ManageUsers.swift */; };
@@ -73,6 +74,7 @@
 		2E84753F2AC4FB1B008304DC /* CreateFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFolderViewController.swift; sourceTree = "<group>"; };
 		2E875CAA2B02E25A00913F97 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		2E88CA9E2AF81AF70032416E /* FolderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderCell.swift; sourceTree = "<group>"; };
+		2E924DEB2B27E5EE00CC64CD /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
 		2EB62A5C2ABA50BF00944875 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		2EBB082C2B1C09FD008A0FEA /* ViewController+KeyboardHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+KeyboardHandling.swift"; sourceTree = "<group>"; };
 		2EC9926D2B1EBA45007D28B8 /* ManageUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageUsers.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				2EC9DE102AEDEA54004D2CA4 /* ViewController+Utils.swift */,
 				2E2DA9DE2B00121D00720ABF /* RetrieveFolders.swift */,
 				2EBB082C2B1C09FD008A0FEA /* ViewController+KeyboardHandling.swift */,
+				2E924DEB2B27E5EE00CC64CD /* CircularProgressBar.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				2E81DE052B0988F3004F5677 /* DetailsVC.swift in Sources */,
 				2E66F55C2AB7EBB200DDA178 /* MainHomeViewController.swift in Sources */,
 				2E66F5432AB7EAC400DDA178 /* SceneDelegate.swift in Sources */,
+				2E924DEC2B27E5EE00CC64CD /* CircularProgressBar.swift in Sources */,
 				2E88CA9F2AF81AF70032416E /* FolderCell.swift in Sources */,
 				2E808FB72ABF357700E9E258 /* Constants.swift in Sources */,
 				2EE3945E2B0158EC00F9F4CB /* DropDownCell.swift in Sources */,
