@@ -413,9 +413,9 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="f1U-UJ-bbR">
                                 <rect key="frame" x="0.0" y="92" width="414" height="804"/>
                                 <subviews>
-                                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKg-OU-MMT" userLabel="topView">
+                                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKg-OU-MMT" userLabel="topView" customClass="TopView" customModule="PhotoStoreHouseV1" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
-                                        <color key="backgroundColor" red="0.61568627450980395" green="0.26666666666666666" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="systemMintColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="ChF-DI-pWi"/>
                                         </constraints>
@@ -621,7 +621,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0oH-om-5bB" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="797" y="1419"/>
+            <point key="canvasLocation" x="795.6521739130435" y="1418.9732142857142"/>
         </scene>
         <!--Take PhotoVC-->
         <scene sceneID="9wT-8J-XZg">
@@ -1291,6 +1291,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
