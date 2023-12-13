@@ -32,6 +32,7 @@
 		2E88CA9F2AF81AF70032416E /* FolderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E88CA9E2AF81AF70032416E /* FolderCell.swift */; };
 		2E924DEC2B27E5EE00CC64CD /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E924DEB2B27E5EE00CC64CD /* CircularProgressBar.swift */; };
 		2EAC62C82B28E679009B9967 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAC62C72B28E679009B9967 /* TopView.swift */; };
+		2EAC62CA2B292181009B9967 /* UserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAC62C92B292181009B9967 /* UserProfileVC.swift */; };
 		2EB62A5D2ABA50BF00944875 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB62A5C2ABA50BF00944875 /* Utilities.swift */; };
 		2EBB082D2B1C09FD008A0FEA /* ViewController+KeyboardHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBB082C2B1C09FD008A0FEA /* ViewController+KeyboardHandling.swift */; };
 		2EC9926E2B1EBA45007D28B8 /* ManageUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC9926D2B1EBA45007D28B8 /* ManageUsers.swift */; };
@@ -77,6 +78,7 @@
 		2E88CA9E2AF81AF70032416E /* FolderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderCell.swift; sourceTree = "<group>"; };
 		2E924DEB2B27E5EE00CC64CD /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
 		2EAC62C72B28E679009B9967 /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
+		2EAC62C92B292181009B9967 /* UserProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileVC.swift; sourceTree = "<group>"; };
 		2EB62A5C2ABA50BF00944875 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		2EBB082C2B1C09FD008A0FEA /* ViewController+KeyboardHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+KeyboardHandling.swift"; sourceTree = "<group>"; };
 		2EC9926D2B1EBA45007D28B8 /* ManageUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageUsers.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				2E83CF8D2ADB74E50016BB3E /* PhotoDescriptionVC.swift */,
 				2E829CA72AFB0A7100309F55 /* PhotosCollectionVC.swift */,
 				2E81DE042B0988F3004F5677 /* DetailsVC.swift */,
+				2EAC62C92B292181009B9967 /* UserProfileVC.swift */,
 			);
 			path = mainHomeViewControllers;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				2E8184972AC6320F005771C7 /* CorrectFormat.swift in Sources */,
 				2E83CF8E2ADB74E50016BB3E /* PhotoDescriptionVC.swift in Sources */,
 				2EAC62C82B28E679009B9967 /* TopView.swift in Sources */,
+				2EAC62CA2B292181009B9967 /* UserProfileVC.swift in Sources */,
 				2EC9DE112AEDEA54004D2CA4 /* ViewController+Utils.swift in Sources */,
 				2E83CF8A2ADB654B0016BB3E /* photoFile.swift in Sources */,
 				2EBB082D2B1C09FD008A0FEA /* ViewController+KeyboardHandling.swift in Sources */,

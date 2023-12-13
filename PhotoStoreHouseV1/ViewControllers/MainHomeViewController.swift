@@ -23,8 +23,11 @@ class MainHomeViewController: UIViewController {
     // refresh to update new folders created
     let refreshControl = UIRefreshControl()
     
+    @IBOutlet weak var topViewVC: TopView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        topViewVC.parentViewController = self
         configureKeyboardHandling()
         createFolderButtonStack.isHidden = true
         

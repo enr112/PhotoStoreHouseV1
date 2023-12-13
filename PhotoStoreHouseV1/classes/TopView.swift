@@ -8,6 +8,8 @@
 import UIKit
 
 class TopView: UIView {
+    // Reference to the parent view controller
+    weak var parentViewController: UIViewController?
 
     /*
     // Only override draw() if you perform custom drawing.
@@ -32,20 +34,29 @@ class TopView: UIView {
     
     private let button: UIButton = {
         let button = UIButton()
-        Utilities.styleFilledButton(button)
         button.setTitle("My Account", for: .normal)
         button.setTitleColor(.blue, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
         button.translatesAutoresizingMaskIntoConstraints = false // Enables manual layout constraints
         button.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        /*
         // Add an action to the button
-        button.addTarget(TopView.self, action: #selector(buttonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        Utilities.styleFilledButton(button)
+        */
         return button
     }()
     
     // Action for the button
     @objc private func buttonTapped() {
         print("Button tapped!")
-        // Add your custom action here
+        // Use the reference to the parent view controller
+        
+        if let parentVC = parentViewController {
+            let toUserProfileVC = parentVC.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.userProfileVC) as! UserProfileVC
+            parentVC.navigationController?.pushViewController(toUserProfileVC, animated: true)
+        }
+         
     }
 
     // Initializer for TopView
@@ -61,6 +72,11 @@ class TopView: UIView {
     
     // Function to set up the views and layout constraints
     private func setupViews() {
+        
+        // Add an action to the button
+        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        Utilities.styleFilledButton(button)
+        
         // Add the imageView and button to the stackView
         let stackView = UIStackView(arrangedSubviews: [imageView, button])
         stackView.axis = .vertical
